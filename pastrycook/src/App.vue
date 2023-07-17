@@ -1,16 +1,16 @@
 <template>
-  <div class="bg-violet-100 h-screen" >
+  <div class="bg-white h-screen" >
     <BoxNab/>
-    <BoxBody/>
-
-    <BoxFoot/>
-  </div>
-   
+    <BoxTitle/>
+        <BoxBody/>
+>        <BoxFoot/>
+  </div> 
 </template>
 
 <script>
 import BoxNab from './components/BoxNav.vue';
 import BoxFoot from './components/BoxFoot.vue';
+import BoxTitle from './components/BoxTitle.vue';
 import BoxBody from './components/BoxBody.vue';
 
 export default {
@@ -18,7 +18,9 @@ export default {
   components: {
     BoxNab,
     BoxFoot,
-    BoxBody
+    BoxBody,
+    BoxTitle
+
   }
 }
 </script>

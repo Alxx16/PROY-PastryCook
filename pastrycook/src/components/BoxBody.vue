@@ -1,33 +1,63 @@
 <template>
-    <div class="relative isolate flex items-center gap-x-6 overflow-hidden bg-gray-50 px-6 py-2.5 sm:px-3.5 sm:before:flex-1">
-      <div class="absolute left-[max(-7rem,calc(50%-52rem))] top-1/2 -z-10 -translate-y-1/2 transform-gpu blur-2xl" aria-hidden="true">
-        <div class="aspect-[577/310] w-[36.0625rem] bg-gradient-to-r from-[#ff80b5] to-[#9089fc] opacity-30" style="clip-path: polygon(74.8% 41.9%, 97.2% 73.2%, 100% 34.9%, 92.5% 0.4%, 87.5% 0%, 75% 28.6%, 58.5% 54.6%, 50.1% 56.8%, 46.9% 44%, 48.3% 17.4%, 24.7% 53.9%, 0% 27.9%, 11.9% 74.2%, 24.9% 54.1%, 68.6% 100%, 74.8% 41.9%)" />
-      </div>
-      <div class="absolute left-[max(45rem,calc(50%+8rem))] top-1/2 -z-10 -translate-y-1/2 transform-gpu blur-2xl" aria-hidden="true">
-        <div class="aspect-[577/310] w-[36.0625rem] bg-gradient-to-r from-[#ff80b5] to-[#9089fc] opacity-30" style="clip-path: polygon(74.8% 41.9%, 97.2% 73.2%, 100% 34.9%, 92.5% 0.4%, 87.5% 0%, 75% 28.6%, 58.5% 54.6%, 50.1% 56.8%, 46.9% 44%, 48.3% 17.4%, 24.7% 53.9%, 0% 27.9%, 11.9% 74.2%, 24.9% 54.1%, 68.6% 100%, 74.8% 41.9%)" />
-      </div>
-      <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
-        <p class="text-sm leading-6 text-gray-900">
-          <strong class="font-semibold">Pastry Cook</strong><svg viewBox="0 0 2 2" class="mx-2 inline h-0.5 w-0.5 fill-current" aria-hidden="true"><circle cx="1" cy="1" r="1" /></svg>Bienvenido a la mejor plataforma de recetas de pasteleria
-        </p>
-        <a href="#" class="flex-none rounded-full bg-gray-900 px-3.5 py-1 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900">Registrate! <span aria-hidden="true">&rarr;</span></a>
-      </div>
-      <div class="flex flex-1 justify-end">
-        <!-- <button type="button" class="-m-3 p-3 focus-visible:outline-offset-[-4px]">
-          <span class="sr-only">Dismiss</span>
-          <XMarkIcon class="h-5 w-5 text-gray-900" aria-hidden="true" />
-        </button> -->
-      </div>
-      <div class="">
+    <div>
+        <div class="bg-white w-full h-full">
+            <img class=" flex-none w-full h-full" src="../assets/img/banner.jpg" alt="">
+        </div>   
+    <div class="bg-white">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-32">
+      <h2 class="text-2xl font-bold text-gray-900">Categorias</h2>
 
+      <div class="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0">
+        <div class="group relative">
+          <div class="relative h-70 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
+            <img src="https://cdn2.cocinadelirante.com/sites/default/files/images/2019/04/recetas-de-postres-frios-con-galletas-faciles-y-rapidos-sin-horno.jpg" alt="Recetas frias" class="h-full w-full object-cover object-center">
+          </div>
+          <h3 class="mt-6 text-sm text-gray-500">
+            <a href="#">
+              <span class="absolute inset-0"></span>
+              Recetas frias
+            </a>
+          </h3>
+          <p class="text-base font-semibold text-gray-900">que berga pongo aqui </p>
+        </div>
+        <div class="group relative">
+          <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
+            <img src="https://e00-telva.uecdn.es/assets/multimedia/imagenes/2020/04/20/15873968588292.jpg" alt="Recetas calientes" class="h-full w-full object-cover object-center">
+          </div>
+          <h3 class="mt-6 text-sm text-gray-500">
+            <a href="#">
+              <span class="absolute inset-0"></span>
+                Recetas calientes
+            </a>
+          </h3>
+          <p class="text-base font-semibold text-gray-900"> que berga pongo aquiX2 </p>
+        </div>
+        <div class="group relative">
+          <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
+            <img src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F21%2F2021%2F03%2F05%2FGettyImages-905563616-1-2000.jpg&q=60" alt="Galletas" class="h-full w-full object-cover object-center">
+          </div>
+          <h3 class="mt-6 text-sm text-gray-500">
+            <a href="#">
+              <span class="absolute inset-0"></span>
+               Recetas Galletas
+            </a>
+          </h3>
+          <p class="text-base font-semibold text-gray-900"> que berga pongo aquix3</p>
+        </div>
       </div>
     </div>
-  </template>
+  </div>
+  <div class="flex items-center">
+  <img src="../assets/img/logo2.1.png" alt="logo2" class="w-110 h-110 object-cover rounded-full">
+  <p class="ml-0 mr-9 indent-8 tex">Pastry Cook ofrece al mundo la oportunidad de poder compartir con el mundo tus dulces  recetas , al igual  que tambien  podras encontrar recetas de otras personas que al igual  que tu, quieran dar a conocer sus difentes y varidas recetas.</p>
+    </div>
+    </div>
+</div>
+</template>
+
+  <style>
   
-  <script setup>
-//   import { XMarkIcon } from '@heroicons/vue/20/solid'
-
-//asdasda
-  </script>
-
+  </style>
+  
 
