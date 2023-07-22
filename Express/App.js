@@ -9,10 +9,8 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-app.use(require('./routers/post'));
-app.use(require('./routers/get'));
-//app.use(require('./routers/delete'));
-//app.use(require('./routers/put'));
+
+app.use(require('./routers/rutas'));
 
 const server = app.listen(process.env.PORT, (error) => {
     if (error) return console.log(`Error: ${error}`);

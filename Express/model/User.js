@@ -1,10 +1,10 @@
 //conexión con la base de datos
 const {connection} = require("../config.db");
-const {Validate} = require("../model/Validations");
+const {Validate} = require("./Validations");
 
 class User {
  
-    constructor({operacion, idUsuario, nameUser, correo, contrasena, nombreUsuario, icono}){
+    constructor({operacion, idUsuario, nameUser, correo, contrasena, nombreUsuario, icono, telef}){
         this.operacion = operacion;
         this.idUsuario = idUsuario;
         this.nameUser = nameUser;
@@ -12,6 +12,7 @@ class User {
         this.contrasena = contrasena;
         this.nombreUsuario = nombreUsuario;
         this.icono = icono;
+        this.telef = telef;
     }
     async registerUser(){
         try {
@@ -87,17 +88,26 @@ class User {
     }
     async updateDataUser(){
         try {
-            const results = await new Promise((resolve, reject) => {
-                connection.query('CALL `sp_editarUsuario`(?,?,?,?,?,?)', 
-                                [this.idUsuario, this.nameUser, this.correo, 
-                                    this.contrasena, this.icono, this.nombreUsuario],
-                (error, results) => {
-                    if (error) reject(error);
-                        console.log(results)
-                        resolve(results);
-                }
-                );
-            });
+            const emailV = await Validate.validateEmail(this.correo);
+            if(emailV){
+                const encryPass = await Validate.encryptPassword(this.contrasena);
+                const passEdit = (this.contrasena !== " ") ? encryPass : " "
+                
+                const results = await new Promise((resolve, reject) => {
+                    connection.query('CALL `sp_editarUsuario`(?,?,?,?,?,?,?)', 
+                                    [this.idUsuario, this.nameUser, this.correo, passEdit, 
+                                     this.telef, this.icono, this.nombreUsuario],
+                    (error, results) => {
+                        if (error) reject(error);
+                            console.log(results)
+                            resolve(results);
+                    }
+                    );
+                });
+                return results.affectedRows;
+            }else{
+                return 0;
+            }
         } catch (error) {
             
         }
