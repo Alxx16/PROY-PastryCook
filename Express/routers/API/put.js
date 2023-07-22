@@ -9,9 +9,9 @@ module.exports = {
             const resultEdit = await user.updateDataUser();
 
             if(resultEdit !== 0 ){
-                response.status(201).json({"Datos Actualizados": resultEdit})
+                response.status(201).json({msj: "Datos Actualizados", affected: resultEdit})
             }else{
-                response.status(400).json({"Error al Actualizar los Datos": resultEdit})
+                response.status(400).json({msj: "Error al Actualizar los Datos", affected: resultEdit})
             }
         }
     }

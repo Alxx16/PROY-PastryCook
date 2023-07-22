@@ -9,9 +9,9 @@ module.exports = {
             const registroUser = await user.registerUser();
 
             if(registroUser !== 0 ){
-                response.status(201).json({"Registro Exitoso": registroUser})
+                response.status(201).json({msj: "Registro Exitoso", affected: registroUser})
             }else{
-                response.status(400).json({"Registro No Exitoso: Nombre de Usuario Existente": registroUser})
+                response.status(400).json({msj: "Registro No Exitoso: Nombre de Usuario Existente", affected: registroUser})
             }
         },
         async login (request, response) {
@@ -20,12 +20,15 @@ module.exports = {
             const {resulRes, idUsu} = await user.loginUser();
 
             if(resulRes !== 0 ){
-                response.status(200).json({"¡Bienvenido!": idUsu})
+                response.status(200).json({msj: "¡Bienvenido!", id: idUsu})
             }else{
-                response.status(400).json({"Fallo al Iniciar Sesión": idUsu})
+                response.status(400).json({msj: "Fallo al Iniciar Sesión", id: idUsu})
             }
         },
         async postRecipe (request, response) {
+            
+        },
+        async postFavorite (request, response) {
             
         }
     }   
