@@ -1,9 +1,7 @@
 <template>
     <div class="bg-white h-screen" >
     <BoxNab/>
-    <BoxTitle/>
     <router-view/>
-   
     <BoxFoot/>
     <box-sing-up/>
   </div>
@@ -14,15 +12,15 @@
 import BoxNab from './components/BoxNav.vue';
 import BoxFoot from './components/BoxFoot.vue';
 //import BoxBody from './components/BoxBody.vue';
-import BoxTitle from './components/BoxTitle.vue';
+//import BoxTitle from './components/BoxTitle.vue';
 
 export default {
   name: 'App',
   components: {
     BoxNab,
-    BoxFoot,
+    BoxFoot
     //BoxBody,
-    BoxTitle
+    //BoxTitle
   }
 }
 </script>
