@@ -4,9 +4,11 @@
       <img src="../assets/img/logo.png" alt="logo" class="h-24 ">
       <!-- <span class="font-semibold text-xl tracking-tight"></span> -->
     </a>
-    <button class="bg-amber-300 hover:amber-500 text-white font-semibold py-2 px-4 rounded hidden md:block">
-      Acceder
-    </button>
+    <router-link to="/inicio" class="bg-amber-300 rounded-lg border-black text-black hover:text-white font-semibold py-2 px-4 hidden md:block shadow-lg shadow-black-500/50">
+    
+       Acceder
+    
+  </router-link>
     <button class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded md:hidden">
       <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
         <path

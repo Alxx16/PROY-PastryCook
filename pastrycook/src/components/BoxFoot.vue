@@ -5,7 +5,7 @@
                     <div class="flex justify-between">
                         <div>
                             <h2 class="text-3xl font-bold mb-4">Pastry Cook</h2>
-                            <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
+                            <p class="text-sm">Pastry Cook es una plataforma para compartir y consumir recetas de pasteleria.</p>
                             <div class="mt-4">
                     <span class="inline-flex justify-center mt-2 sm:ml-auto sm:mt-0 sm:justify-start">
                         <a class="text-gray-500 cursor-pointer hover:text-gray-700">
