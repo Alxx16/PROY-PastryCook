@@ -42,15 +42,16 @@
                 </div>
                         </div>
                         <div>
-                            <h2 class="text-3xl font-bold mb-4">Learn more</h2>
+                            <h2 class="text-3xl font-bold mb-4">Ayuda</h2>
                             <ul class="ml-6">
-                                <li><a href="#">home</a></li>
-                                <li><a href="#">Blog</a></li>
-                                <li><a href="#">About</a></li>
+                                <li><a href="https://www.youtube.com/watch?v=xvFZjo5PgG0">Home</a></li>
+                                <li><a href="https://www.youtube.com/watch?v=JLlw8vCoeRw">Enlaces de interés</a></li>
+                                <li><a href="https://www.youtube.com/watch?v=3JwOcxeXoSI ">Acerca de nosotros</a></li>
                             </ul>
                         </div>
                         <div>
-                            <h2 class="text-3xl font-bold mb-4">Logo</h2>
+                            <img class="mx-auto h-20 w-auto" src="../assets/img/logo.png" alt="PastryCook"/>
+                            <!-- <h2 class="text-3xl font-bold mb-4">Logo</h2> -->
                             <p>All Rights Reserved Epiletic Team</p>
                         </div>
 
