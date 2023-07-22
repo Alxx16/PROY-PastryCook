@@ -1,21 +1,21 @@
 <template>
   <div>
-  <nav class="relative flex w-full items-center justify-center bg-white py-2 text-neutral-600 shadow-lg hover:text-neutral-700 focus:text-neutral-700 dark:bg-neutral-600 dark:text-neutral-200 md:justify-between">
-  <div class="flex w-full  items-center justify-center md:justify-between px-3">
+  <nav class="relative flex w-full items-center bg-white py-2 ">
+  <div class="flex w-full  items-center justify-center  px-3">
     <!-- Necesito arreglar xxm -->
-    <div class="flex items-center md:items-stretch justify-center">
-      <ul class="flex flex-col md:flex-row">
+    <div class="flex">
+      <ul class="flex flex-col md:flex-row justify-between text-justify">
         <li class="mb-4 md:mb-0 md:mr-4">
-          <a class="block transition duration-150 ease-in-out hover:text-neutral-700 focus:text-neutral-700 dark:hover:text-white dark:focus:text-black" href="#home">Inicio</a>
+          <a class="" href="#home">Inicio</a>
         </li>
         <li class="mb-4 md:mb-0 md:mr-4">
-          <a class="block transition duration-150 ease-in-out hover:text-neutral-700 focus:text-neutral-700 dark:hover:text-white dark:focus:text-black" href="#features">Buscar</a>
+          <a class="scale-100" href="#features">Buscar</a>
         </li>
         <li class="mb-4 md:mb-0 md:mr-4">
-          <a class="block transition duration-150 ease-in-out hover:text-neutral-700 focus:text-neutral-700 dark:hover:text-white dark:focus:text-black" href="#pricing">Favoritos</a>
+          <a class=" " href="#pricing">Favoritos</a>
         </li>
         <li class="mb-2 md:mb-0">
-          <a class="block transition duration-150 ease-in-out hover:text-neutral-700 focus:text-neutral-700 dark:hover:text-white dark:focus:text-black" href="#about">Recetas</a>
+          <a class=" " href="#about">Recetas</a>
         </li>
       </ul>
     </div>
@@ -45,15 +45,15 @@
 <section class="mb-12 bg-rose-300">
     <div class="w-full items-center justify-center bg-primary py-4 px-6 text-center md:flex md:text-left">
       <div class="mb-4 flex flex-wrap items-center justify-center md:mb-0 md:justify-start">
-        <strong class="mr-1 text-black">Pastry Cook</strong> 
+        <strong class="mr-1 text-2xl text-black">Pastry Cook</strong>
       </div>
     </div>
   </section>
   <!-- Categorias -->
-  
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-32">
-      <h2 class="mb-12 text-center text-3xl font-bold">Categorias</h2>
+  <div class="bg-white mb pt-12">
+  <div class="mx-auto max-w-4xl px-4 sm:px-9 lg:px-8">
+    <div class="mx-auto max-w-8xl py-16 sm:py-10 lg:max-w-none lg:py-32">
+      <h1 class="text-4xl font-bold text-gray-900">Categorías</h1>
       <div class="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0">
         <div class="group relative">
           <div class="relative h-70 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
@@ -62,10 +62,10 @@
           <h3 class="mt-6 text-sm text-gray-500">
             <a href="#">
               <span class="absolute inset-0"></span>
-              Recetas frias
+              Recetas frías
             </a>
           </h3>
-          <p class="text-base font-semibold text-gray-900">que berga pongo aqui </p>
+          <p class="text-base font-semibold text-gray-900">La mejor manera de refrescarse en un día caluroso</p>
         </div>
         <div class="group relative">
           <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
@@ -77,7 +77,7 @@
                 Recetas calientes
             </a>
           </h3>
-          <p class="text-base font-semibold text-gray-900"> que berga pongo aquiX2 </p>
+          <p class="text-base font-semibold text-gray-900">La mejor manera de entrar en calor en un día frío</p>
         </div>
         <div class="group relative">
           <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
@@ -89,46 +89,11 @@
                Recetas Galletas
             </a>
           </h3>
-          <p class="text-base font-semibold text-gray-900"> que berga pongo aquix3</p>
-        </div>
-        <div class="group relative">
-          <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
-            <img src="https://e00-telva.uecdn.es/assets/multimedia/imagenes/2020/04/20/15873968588292.jpg" alt="Recetas calientes" class="h-full w-full object-cover object-center">
-          </div>
-          <h3 class="mt-6 text-sm text-gray-500">
-            <a href="#">
-              <span class="absolute inset-0"></span>
-                Recetas calientes
-            </a>
-          </h3>
-          <p class="text-base font-semibold text-gray-900"> que berga pongo aquiX2 </p>
-        </div>
-        <div class="group relative">
-          <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
-            <img src="https://e00-telva.uecdn.es/assets/multimedia/imagenes/2020/04/20/15873968588292.jpg" alt="Recetas calientes" class="h-full w-full object-cover object-center">
-          </div>
-          <h3 class="mt-6 text-sm text-gray-500">
-            <a href="#">
-              <span class="absolute inset-0"></span>
-                Recetas calientes
-            </a>
-          </h3>
-          <p class="text-base font-semibold text-gray-900"> que berga pongo aquiX2 </p>
-        </div>
-        <div class="group relative">
-          <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
-            <img src="https://e00-telva.uecdn.es/assets/multimedia/imagenes/2020/04/20/15873968588292.jpg" alt="Recetas calientes" class="h-full w-full object-cover object-center">
-          </div>
-          <h3 class="mt-6 text-sm text-gray-500">
-            <a href="#">
-              <span class="absolute inset-0"></span>
-                Recetas calientes
-            </a>
-          </h3>
-          <p class="text-base font-semibold text-gray-900"> que berga pongo aquiX2 </p>
+          <p class="text-base font-semibold text-gray-900"> El plato perfecto para cualquier ocasión</p>
         </div>
       </div>
     </div>
+  </div>
     <!-- Recetas -->
   </div>
 
@@ -180,7 +145,7 @@ li {
   margin: 0 10px;
 }
 a {
-  color: #0000;
+  /* color: #ef1fc9; */
 }
 
 .fade-enter-active,
