@@ -1,17 +1,17 @@
 const {connection} = require("../config.db");
 
-class Recipe {
+class Favorite {
  
-    constructor({operacion, id_Usuario, id_Receta}){
+    constructor({operacion, id_Receta, id_Usuario}){
         this.operacion = operacion;
-        this.id_Usuario = id_Usuario;
         this.id_Receta = id_Receta;
+        this.id_Usuario = id_Usuario;
     }
-    async getAllRecipe(){
+    async getProcessFavorite(){
         try {
             const results = await new Promise((resolve, reject) => {
-                connection.query('CALL `sp_mostrar_recetas`(?,?,?)', 
-                                [this.operacion, this.id_Usuario, this.id_Receta],
+                connection.query('CALL `sp_procesos_favorito`(?,?,?)', 
+                                [this.operacion, this.id_Receta, this.id_Usuario],
                     (error, results) => {
                         if (error) reject(error);
                             console.log(results)
@@ -19,13 +19,14 @@ class Recipe {
                     }
                 );
             });
-            return results;
+            const resResponse = results ? 1 : 0
+            return {resulRes: resResponse, idReceta: this.id_Receta};
         } catch (error) {
             console.log(error);
-            console.log("Error al obtener recetas")
+            console.log("Error al obtener recetas favoritas")
         }
         return 0;
     }
 }
 
-module.exports = Recipe;
+module.exports = Favorite;
