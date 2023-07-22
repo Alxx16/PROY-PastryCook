@@ -1,4 +1,5 @@
 const User = require("../../model/User")
+const Favorite = require("../../model/Favorite")
 
 //Raíz
 module.exports = {
@@ -29,7 +30,15 @@ module.exports = {
             
         },
         async postFavorite (request, response) {
-            
+            const reqFav = request.body;
+            const recetaFav = new Favorite(reqFav);
+            const {resulRes, idReceta} = await recetaFav.getProcessFavorite();
+
+            if(resulRes !== 0 ){
+                response.status(200).json({msj: "Añadido a Favoritos", idR: idReceta})
+            }else{
+                response.status(400).json({msj: "Fallo al Añadir a Favoritos", idR: idReceta})
+            }
         }
     }   
 }

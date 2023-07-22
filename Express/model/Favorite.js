@@ -19,7 +19,8 @@ class Favorite {
                     }
                 );
             });
-            return results;
+            const resResponse = results ? 1 : 0
+            return {resulRes: resResponse, idReceta: this.id_Receta};
         } catch (error) {
             console.log(error);
             console.log("Error al obtener recetas favoritas")
