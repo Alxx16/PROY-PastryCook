@@ -1,35 +1,103 @@
 //conexión con la base de datos
 const {connection} = require("../config.db");
+const {Validate} = require("../model/Validations");
 
 class User {
  
-    constructor({operacion, idUsuario, nameUser, correo, contrasena, nombreUsuario}){
+    constructor({operacion, idUsuario, nameUser, correo, contrasena, nombreUsuario, icono}){
         this.operacion = operacion;
         this.idUsuario = idUsuario;
         this.nameUser = nameUser;
         this.correo = correo;
         this.contrasena = contrasena;
         this.nombreUsuario = nombreUsuario;
+        this.icono = icono;
     }
-    registerUser(){
-        let responseRegistro;
+    async registerUser(){
         try {
-            responseRegistro = connection.query('CALL `sp_procesos_usuario`(?,?,?,?,?,?)', [this.operacion, this.idUsuario
-                , this.nameUser, this.correo, this.contrasena, this.nombreUsuario],
-            (error, results) => {
-                if(error)
-                    throw error;
-                    console.log("Error = ",results)
-            });
+            const emailV = await Validate.validateEmail(this.correo);
+            if(emailV){
+                const encryPass = await Validate.encryptPassword(this.contrasena);
+                const results = await new Promise((resolve, reject) => {
+                    connection.query('CALL `sp_procesos_usuario`(?,?,?,?,?,?)', 
+                                    [this.operacion, this.idUsuario, this.nameUser, this.correo, 
+                                        encryPass, this.nombreUsuario],
+                    (error, results) => {
+                        if (error) reject(error);
+                            console.log(results)
+                            resolve(results);
+                    }
+                    );
+                });
+            
+            return results.affectedRows;
+            }else{
+                return 0;
+            }
         } catch (error) {
             console.log(error);
             console.log("Error al registrar al Usuario")
         }
-        return responseRegistro;
+        return 0;
     }
-    loginUser(){
+    async loginUser(){
         try {
-            
+            const [[results]] = await new Promise((resolve, reject) => {
+                connection.query('CALL `sp_procesos_usuario`(?,?,?,?,?,?)', 
+                                [this.operacion, this.idUsuario, this.nameUser, this.correo, 
+                                this.contrasena, this.nombreUsuario],
+                (error, results) => {
+                    if (error) reject(error);
+                        console.log(results);
+                        resolve(results);
+                }
+                );
+            });
+            //validaciones
+            const resResponse = results ? 1 : 0
+            const passwordEncr = (resResponse == 1) ? results['contraseña'] : " "
+            const idUsu = (resResponse == 1) ? results['id_U'] : 0
+            const validacion = await Validate.validarPassword(this.contrasena, passwordEncr);
+            const valiResponse = validacion ? 1 : 0
+
+            return {resulRes: valiResponse, idUsu: idUsu};
+        } catch (error) {
+            console.log(error);
+            console.log("Error al Iniciar Sesión")
+        }
+    }
+    async getDataUser(){
+        try {
+            const [[results]] = await new Promise((resolve, reject) => {
+                connection.query('CALL `sp_procesos_usuario`(?,?,?,?,?,?)', 
+                                [this.operacion, this.idUsuario, this.nameUser, this.correo, 
+                                this.contrasena, this.nombreUsuario],
+                (error, results) => {
+                    if (error) reject(error);
+                        console.log(results);
+                        resolve(results);
+                }
+                );
+            });
+            return results;
+        } catch (error) {
+            console.log(error);
+            console.log("Error al Obtener la Data")
+        }
+    }
+    async updateDataUser(){
+        try {
+            const results = await new Promise((resolve, reject) => {
+                connection.query('CALL `sp_editarUsuario`(?,?,?,?,?,?)', 
+                                [this.idUsuario, this.nameUser, this.correo, 
+                                    this.contrasena, this.icono, this.nombreUsuario],
+                (error, results) => {
+                    if (error) reject(error);
+                        console.log(results)
+                        resolve(results);
+                }
+                );
+            });
         } catch (error) {
             
         }
