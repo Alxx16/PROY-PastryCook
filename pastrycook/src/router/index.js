@@ -18,7 +18,7 @@ const routes = [
       name: 'login',
       component: () => import('@/components/BoxLogin.vue')
     },
-     {
+    {
       path: '/SingUp',
       name: 'SingUp',
       component: () => import('@/components/BoxSingUp.vue')

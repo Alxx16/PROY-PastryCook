@@ -3,6 +3,36 @@
         <!-- class="sm:mx-auto sm:w-full sm:max-w-sm"-->
         <div> 
             <h3 class="uppercase p-5 bg-violet-200 w-full text-center text-2xl font-bold leading-9 tracking-tight text-gray-900 mb-8">Iniciar Sesión</h3>
+            
+            <div class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md" role="alert">
+                <div class="flex text-left">
+                    <div class="py-1 mx-9">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-teal-500">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="font-bold">¡Inicio de sesión exitoso!</p>
+                        <p class="text-sm">Mensaje Api</p>
+                    </div>
+                </div>               
+            </div>
+
+            <div class="bg-red-100 border-t-4 border-red-500 rounded-b text-red-900 px-4 py-3 shadow-md" role="alert">
+                <div class="flex text-left">
+                    <div class="py-1 mx-9">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-red-500">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="font-bold">¡Error de inicio de sesión!</p>
+                        <p class="text-sm">Mensaje Api</p>
+                    </div>
+                </div>               
+            </div>
+
+            
             <img class="mx-auto h-20 w-auto" src="../assets/img/logo.png" alt="PastryCook" />
         </div>
         
@@ -60,9 +90,18 @@ export default {
             }
             console.log(jsonData);
 
+            //QUE DANIELA ME MANDE EL ESTADO TAMBIEN
+
             try {
-            const response = await post(`http://localhost:3001/login`, jsonData);
-            console.log(response); 
+            const {id, msj, token} = await post(`http://localhost:3001/login`, jsonData);
+
+            if(msj == 'Bienvenido!'){
+                console.log('Poner alert de todo bien y Te mando a la pagina principal'); 
+            }else{
+                console.log('te mando alenrt de X y vuelves a iniciar sesion o tre crear cuenta'); 
+            }
+
+            console.log(id, msj, token); 
 
             } catch (error) {
                 console.error(error);
