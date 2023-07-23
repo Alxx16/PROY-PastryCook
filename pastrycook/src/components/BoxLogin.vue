@@ -1,6 +1,5 @@
 <template>
     <div class="flex min-h-full flex-1 flex-col justify-center pb-12 padding-top: 0px;">
-        <!-- class="sm:mx-auto sm:w-full sm:max-w-sm"-->
         <div> 
             <h3 class="uppercase p-5 bg-violet-200 w-full text-center text-2xl font-bold leading-9 tracking-tight text-gray-900 mb-8">Iniciar Sesión</h3>
             
@@ -90,18 +89,16 @@ export default {
             }
             console.log(jsonData);
 
-            //QUE DANIELA ME MANDE EL ESTADO TAMBIEN
-
             try {
-            const {id, msj, token} = await post(`http://localhost:3001/login`, jsonData);
+            const {id, msj, token, estado} = await post(`http://localhost:3000/login`, jsonData);
 
-            if(msj == 'Bienvenido!'){
-                console.log('Poner alert de todo bien y Te mando a la pagina principal'); 
+            if(estado == 1){
+                console.log('Pagina principal ' + msj); 
+                console.log(id, token)
             }else{
-                console.log('te mando alenrt de X y vuelves a iniciar sesion o tre crear cuenta'); 
-            }
-
-            console.log(id, msj, token); 
+                console.log('te mando alenrt de X y vuelves a iniciar sesion o tre crear cuenta ' + msj); 
+            } 
+            
 
             } catch (error) {
                 console.error(error);
