@@ -9,12 +9,8 @@
     <div class="flex">
       <ul class="flex flex-col md:flex-row justify-between text-justify">
         <li class="mb-4 md:mb-0 md:mr-4 mx-10">
-<<<<<<< HEAD
-          <a class="" href="../components/BoxMyProfile.vue">Inicio</a>
-=======
           <router-link to="/Profile" class="" href="">Inicio 
           </router-link>
->>>>>>> b05dd3a55951228e721b9adaedef67c1dd5ace2c
         </li>
         <li class="mb-4 md:mb-0 md:mr-4 mx-10">
           <a class="scale-100" href="#features">Buscar</a>

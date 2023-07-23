@@ -4,16 +4,16 @@
     <router-link to="/inicio" class="flex items-center flex-shrink-0 text-white mr-6">
       <img src="../assets/img/logo.png" alt="logo" class="h-24 ">
     </router-link>
-    <router-link to="/login" v-if="!showButton" class="btn btn-block btn-primary  bg-amber-300 rounded-lg border-black text-black hover:text-white font-semibold py-2 px-4 hidden md:block shadow-lg shadow-black-500/50">
+    <router-link to="/login" v-if="!token" class="btn btn-block btn-primary  bg-amber-300 rounded-lg border-black text-black hover:text-white font-semibold py-2 px-4 hidden md:block shadow-lg shadow-black-500/50">
        Acceder
   </router-link>
 
   <!-- Boton de Inicio -->
-  <div v-if="showButton" class="relative group" >
+  <div v-if="token" class="relative group" >
     <button >
-    <img class="rounded-full" style="height: 50px; width: 50px" alt="Avatar" loading="lazy" src="https://sgaissert.files.wordpress.com/2009/09/lilaccloseup.jpg" >
+    <img @click.prevent="nombre" class="rounded-full" style="height: 50px; width: 50px" alt="Avatar" loading="lazy" src="https://sgaissert.files.wordpress.com/2009/09/lilaccloseup.jpg" >
   </button>
-     <div class="absolute z-10 hidden bg-grey-200 group-hover:block place-items-center">
+     <div class="absolute z-10 bg-grey-200  place-items-center" :class="{'hidden':!showDropDown}">
        <div class="px-2 pt-2 pb-4 bg-red-200 shadow-lg">
             <div  class=" absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
               <ul  class="py-1">
@@ -33,18 +33,23 @@
 
 <script>
 
+// import {token} from '../router'
+import { mapGetters } from "vuex";
 export default {
-    
-  data() {
-   return {
-  showButton:true,// Variable de estado para controlar la visibilidad del botón
-   };
- },
-  methods: {
-    toggleButton() {
-      this.showButton = !this.showButton;// Cambiar el estado de la variable al hacer clic
+  computed: {
+    ...mapGetters(["token"])
+  },
+  data: ()=>{
+    return{
+      showDropDown: false
+    }
+  },
+  methods:{
+    nombre(){
+      this.showDropDown = !this.showDropDown;
     }
   }
+   
 };
 </script>
 

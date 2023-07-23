@@ -58,7 +58,7 @@
                     </div>
                     <div class="flex justify-cenBOXter">
                         <!-- <router-link to="/inicio" type="submit" class="tracking-widest uppercase w-52 rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Iniciar Sesión</router-link> -->
-                        <button type="submit" class="tracking-widest uppercase w-52 rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Iniciar Sesión</button>
+                        <button type="submit" class="tracking-widest uppercase w-52 rounded-md bg-indigo-600 m-auto px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Iniciar Sesión</button>
                     </div>
 
                     <p class="mt-10 text-center text-sm text-gray-500">
@@ -75,6 +75,7 @@
 
 <script>
 import {post} from '../utils';
+import { mapActions } from 'vuex';
 
 export default {
 
@@ -88,6 +89,8 @@ export default {
         }
     },
     methods: {
+        ...mapActions(['addId', 'addToken']),
+
         async login(){
             const jsonData = {
                 "operacion": "I", 
@@ -101,10 +104,12 @@ export default {
                 const {id, msj, token, estado} = await post(`http://localhost:3000/login`, jsonData);
                 this.msj = msj;
 
+                console.log(estado)
                 if(estado == 1){
+                    this.addId(id);
+                    this.addToken(token);
+
                     this.showAlertGood = true
-                    console.log('Pagina principal ' + msj); 
-                    console.log(id, token)
                     this.$router.push('/inicio');
                 }else{
                     this.showAlertBad = true
