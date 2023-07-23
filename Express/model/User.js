@@ -23,11 +23,11 @@ class User {
                     connection.query('CALL `sp_procesos_usuario`(?,?,?,?,?,?)', 
                                     [this.operacion, this.idUsuario, this.nameUser, this.correo, 
                                         encryPass, this.nombreUsuario],
-                    (error, results) => {
-                        if (error) reject(error);
-                            console.log(results)
-                            resolve(results);
-                    }
+                        (error, results) => {
+                            if (error) reject(error);
+                                console.log(results)
+                                resolve(results);
+                        }
                     );
                 });
             
@@ -47,21 +47,22 @@ class User {
                 connection.query('CALL `sp_procesos_usuario`(?,?,?,?,?,?)', 
                                 [this.operacion, this.idUsuario, this.nameUser, this.correo, 
                                 this.contrasena, this.nombreUsuario],
-                (error, results) => {
-                    if (error) reject(error);
-                        console.log(results);
-                        resolve(results);
-                }
+                    (error, results) => {
+                        if (error) reject(error);
+                            console.log(results);
+                            resolve(results);
+                    }
                 );
             });
             //validaciones
             const resResponse = results ? 1 : 0
             const passwordEncr = (resResponse == 1) ? results['contraseña'] : " "
             const idUsu = (resResponse == 1) ? results['id_U'] : 0
+            const idPlan = (resResponse == 1) ? results['id_plan'] : 0
             const validacion = await Validate.validarPassword(this.contrasena, passwordEncr);
             const valiResponse = validacion ? 1 : 0
 
-            return {resulRes: valiResponse, idUsu: idUsu};
+            return {resulRes: valiResponse, idUsu: idUsu, idPlan: idPlan};
         } catch (error) {
             console.log(error);
             console.log("Error al Iniciar Sesión")
@@ -73,11 +74,11 @@ class User {
                 connection.query('CALL `sp_procesos_usuario`(?,?,?,?,?,?)', 
                                 [this.operacion, this.idUsuario, this.nameUser, this.correo, 
                                 this.contrasena, this.nombreUsuario],
-                (error, results) => {
-                    if (error) reject(error);
-                        console.log(results);
-                        resolve(results);
-                }
+                    (error, results) => {
+                        if (error) reject(error);
+                            console.log(results);
+                            resolve(results);
+                    }
                 );
             });
             return results;

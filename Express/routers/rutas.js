@@ -22,18 +22,19 @@ const middelware = (req, res, next) => {
 
 //APIS PETICIÓN GET--------
 router.get('/perfil', middelware, getApi.getUser);
-router.get('/all-recetas', getApi.seeDataRecipe);
+router.get('/all-recetas', middelware, getApi.getDataRecipe);
+router.get("/categorias", getApi.getCategNivel)
 
 //APIS PETICIÓN POST--------
-router.post('/registro', postApi.signUp);
-router.post('/login', postApi.login);
-router.post('/agregarFavorito', postApi.postFavorite);
+router.post('/registro', postApi.signUp); //no lleva midl
+router.post('/login', postApi.login); // no lleva midl
+router.post('/agregarFavorito', middelware, postApi.postFavorite);
 
 //APIS PETICIÓN PUT--------
-router.put('/actualizar-perfil', putApi.editUser)
+router.put('/actualizar-perfil', middelware, putApi.editUser)
 
 //APIS PETICIÓN DELETE--------
-router.delete('/eliminarFavorito', deleteApi.deleteFavorite);
+router.delete('/eliminarFavorito', middelware, deleteApi.deleteFavorite);
 
 
 
