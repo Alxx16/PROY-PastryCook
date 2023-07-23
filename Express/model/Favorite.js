@@ -24,8 +24,8 @@ class Favorite {
         } catch (error) {
             console.log(error);
             console.log("Error al obtener recetas favoritas")
+            return {resulRes: 0, idReceta: this.id_Receta};
         }
-        return 0;
     }
 }
 
