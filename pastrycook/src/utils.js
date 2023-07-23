@@ -14,7 +14,22 @@ module.exports = {
         return response.json();
     },
 
-    // asyc put(){
+    async put(url, data){
+        const response = await fetch(url, {
+            method: "PUT",
+            body: JSON.stringify(data),
+            headers: {
+                "Content-type": "application/json; charset=UTF-8",
+              },
+        });
+        return response.json();
 
-    // }
+    },
+
+    async delete(url){
+        const response = await fetch(url, {
+            method: "PUT",
+        });
+        return response.json();
+    }
 }
