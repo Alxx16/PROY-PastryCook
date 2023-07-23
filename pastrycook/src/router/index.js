@@ -18,11 +18,21 @@ const routes = [
       name: 'login',
       component: () => import('@/components/BoxLogin.vue')
     },
-     {
+    {
       path: '/SingUp',
       name: 'SingUp',
       component: () => import('@/components/BoxSingUp.vue')
-    }
+    },
+    {
+     path: '/Create',
+     name: 'Create',
+     component: () => import('@/Views/BoxCreate.vue')
+   },
+   {
+    path: '/Profile',
+    name: 'Profile',
+    component: () => import('@/components/BoxMyProfile.vue')
+  }
 ]
 
 const router = createRouter({
