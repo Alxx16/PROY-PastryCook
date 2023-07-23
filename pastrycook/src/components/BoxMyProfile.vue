@@ -1,9 +1,14 @@
 <template>
+        <div class="flex min-h-full flex-1 flex-col justify-center pb-12 padding-top: 0px;">
+        <div class="mt-0"> 
+            <h3 class="uppercase p-5 bg-violet-200 w-full text-center text-2xl font-sans font-light mb-8">Mi Perfil</h3>
+            
+        </div>
+    
     <div class="flex min-h-full flex-1 flex-col justify-center pb-12 padding-top: 0px;">
         <!-- class="sm:mx-auto sm:w-full sm:max-w-sm"-->
-        <div> 
-            <h3 class="uppercase p-5 bg-violet-200 w-full text-center text-2xl font-bold leading-9 tracking-tight text-gray-900 mb-8">Mi Perfil</h3>
-        </div>
+    
+        <!-- md:mx-auto md:w-full md:max-w-md -->
         <div class="mt-10 w-5/6 md:mx-auto">
             <form v-on:submit.prevent="singUp" class="space-y-6 w-full p-8 rounded-md border-0 ring-gray-300 ring-1 ring-inset bg-white shadow-md " action="" method="PUT">
                 <div class="grid grid-cols-2 gap-9">
@@ -71,6 +76,7 @@
             </form>
         </div>  
     </div>
+</div>
 </template>
   
   
@@ -118,4 +124,4 @@ export default {
 
 
 }
-  
+</script>

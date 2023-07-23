@@ -10,17 +10,15 @@
 
   <!-- Boton de Inicio -->
   <div v-if="showButton" class="relative group" >
-    <button>
+    <button >
     <img class="rounded-full" style="height: 50px; width: 50px" alt="Avatar" loading="lazy" src="https://sgaissert.files.wordpress.com/2009/09/lilaccloseup.jpg" >
   </button>
-     <div class="absolute z-10 hidden bg-grey-200 group-hover:block">
+     <div class="absolute z-10 hidden bg-grey-200 group-hover:block place-items-center">
        <div class="px-2 pt-2 pb-4 bg-red-200 shadow-lg">
-            <div class="dropdown-menu">
-              <ul>
-              <li> <a href="/first" class=" dropdown-item">Logout</a> </li>
-              <li> <a href="/first" class=" dropdown-item">Datos</a> </li>
-              <li> <a href="/first" class=" dropdown-item">Mis ganancias</a> </li>
-              
+            <div  class=" absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+              <ul  class="py-1">
+              <li> <a href="#" class=" dropdown-item">Mis Datos</a> </li>
+              <li> <a href="#" class=" dropdown-item">Logout</a> </li>
               </ul>
             </div>
           </div>
@@ -39,12 +37,12 @@ export default {
     
   data() {
    return {
-  showButton:true // Variable de estado para controlar la visibilidad del botón
+  showButton:true,// Variable de estado para controlar la visibilidad del botón
    };
  },
   methods: {
     toggleButton() {
-      this.showButton = !this.showButton; // Cambiar el estado de la variable al hacer clic
+      this.showButton = !this.showButton;// Cambiar el estado de la variable al hacer clic
     }
   }
 };
