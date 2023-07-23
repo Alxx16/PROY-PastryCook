@@ -8,13 +8,9 @@
     <!-- Necesito arreglar xxm -->
     <div class="flex">
       <ul class="flex flex-col md:flex-row justify-between text-justify">
-<<<<<<< HEAD
-        <li class="mb-4 md:mb-0 md:mr-4">
-        <router-link to="/Create">Inicio</router-link> 
-=======
         <li class="mb-4 md:mb-0 md:mr-4 mx-10">
-          <a class="" href="../components/BoxMyProfile.vue">Inicio</a>
->>>>>>> c4dbc2ee5d6c84f6dd570fca6e548676c49dc6aa
+          <router-link to="/Profile" class="" href="">Inicio 
+          </router-link>
         </li>
         <li class="mb-4 md:mb-0 md:mr-4 mx-10">
           <a class="scale-100" href="#features">Buscar</a>

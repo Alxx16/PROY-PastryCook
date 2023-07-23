@@ -1,12 +1,13 @@
 <template>
-    <div class="flex min-h-full flex-1 flex-col justify-center pb-12 padding-top: 0px;">
-        <!-- class="sm:mx-auto sm:w-full sm:max-w-sm"-->
+    <div class="flex min-h-full flex-1 flex-col justify-center pb-3 padding-top: 0px;">
         <div> 
             <h3 class="uppercase p-5 bg-violet-200 w-full text-center text-2xl font-bold leading-9 tracking-tight text-gray-900 mb-8">Iniciar Sesión</h3>
             <img class="mx-auto h-20 w-auto" src="../assets/img/logo.png" alt="PastryCook" />
         </div>
-        
-        <div class="mt-10 md:mx-auto md:w-full md:max-w-md">
+    
+    <div class="flex min-h-full flex-1 flex-col justify-center">
+     
+        <div class="mt-1 md:mx-auto md:w-full md:max-w-md">
             <form v-on:submit.prevent="login" class="space-y-6 w-full p-10 rounded-md border-0 ring-gray-300 ring-1 ring-inset bg-white shadow-md " action="" method="POST">
                     <div>
                         <label for="user" class="uppercase block text-sm font-medium leading-6 tex.text-gray-900">Usuario</label>
@@ -26,7 +27,7 @@
                     </div>
                     <div class="flex justify-cenBOXter">
                         <!-- <router-link to="/inicio" type="submit" class="tracking-widest uppercase w-52 rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Iniciar Sesión</router-link> -->
-                        <button type="submit" class="tracking-widest uppercase w-52 rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Iniciar Sesión</button>
+                        <button type="submit" class="tracking-widest uppercase w-52 rounded-md bg-indigo-600 m-auto px-5 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Iniciar Sesión</button>
                     </div>
 
                     <p class="mt-10 text-center text-sm text-gray-500">
@@ -37,6 +38,7 @@
         </div>  
 
     </div>
+</div>
 </template>
 
 
