@@ -3,6 +3,7 @@ const morgan = require("morgan");
 const dotenv = require("dotenv");
 const app = express();
 dotenv.config({path: '.env'});
+// const jwt = require("jsonwebtoken");
 
 app.use(morgan('dev'));
 //nos ayuda a analizar el cuerpo de la solicitud POST
