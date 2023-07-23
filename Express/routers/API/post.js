@@ -25,9 +25,9 @@ module.exports = {
             
             if(resulRes !== 0 ){
                 const token = jwt.sign(reqLogin, process.env.JWT_KEY)
-                response.status(200).json({msj: "¡Bienvenido!", id: idUsu, token: token})
+                response.status(200).json({msj: "¡Bienvenido!", id: idUsu, token: token, estado: resulRes})
             }else{
-                response.status(400).json({msj: "Fallo al Iniciar Sesión", id: idUsu})
+                response.status(400).json({msj: "Fallo al Iniciar Sesión", id: idUsu, estado: resulRes})
             }
         },
         async postRecipe (request, response) {
@@ -39,9 +39,9 @@ module.exports = {
             const {resulRes, idReceta} = await recetaFav.getProcessFavorite();
   
             if(resulRes !== 0){
-                response.status(200).json({msj: "Añadido a Favoritos", idR: idReceta})
+                response.status(200).json({msj: "Añadido a Favoritos", idR: idReceta, estado: resulRes})
             }else{
-                response.status(400).json({msj: "Fallo al Añadir a Favoritos", idR: idReceta} )
+                response.status(400).json({msj: "Fallo al Añadir a Favoritos", idR: idReceta, estado: resulRes} )
             }
         }
     }   

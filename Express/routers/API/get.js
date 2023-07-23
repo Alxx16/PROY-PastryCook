@@ -21,7 +21,7 @@ module.exports = {
             };
             const recipe = new Recipe(reqRecipeIn);
             const [resultsRecipe] = await recipe.getAllRecipe();
-            const [resultsR] = JSON.stringify(resultsRecipe) === '[]' ? [{ "msj": 'No se han encontrado Recetas'}] : [resultsRecipe]
+            const [resultsR] = JSON.stringify(resultsRecipe) === '[]' ? [{ "msj": 'No se han encontrado Recetas', "estado": 0}] : [resultsRecipe]
             response.status(200).json(resultsR);
         },
     }

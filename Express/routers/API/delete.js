@@ -13,9 +13,9 @@ module.exports = {
             const recetaFav = new Favorite(reqFav);
             const {resulRes, idReceta} = await recetaFav.getProcessFavorite();
             if(resulRes !== 0){
-                response.status(200).json({msj: "Eliminado de Favoritos", idR: idReceta})
+                response.status(200).json({msj: "Eliminado de Favoritos", idR: idReceta, estado: resulRes})
             }else{
-                response.status(400).json({msj: "Fallo al Eliminar de Favoritos", idR: idReceta} )
+                response.status(400).json({msj: "Fallo al Eliminar de Favoritos", idR: idReceta, estado: resulRes} )
             }
         }
     }
