@@ -89,7 +89,7 @@ export default {
         }
     },
     methods: {
-        ...mapActions(['addId', 'addToken']),
+        ...mapActions(['addId', 'addToken', 'addaddTypeAccount']),
 
         async login(){
             const jsonData = {
@@ -101,14 +101,15 @@ export default {
             console.log(jsonData);
 
             try {
-                const {id, msj, token, estado} = await post(`http://localhost:3000/login`, jsonData);
+                const {id, msj, token, estado, idPlan} = await post(`http://localhost:3000/login`, jsonData);
                 this.msj = msj;
 
                 console.log(estado)
                 if(estado == 1){
                     this.addId(id);
                     this.addToken(token);
-
+                    this.addTypeAccount(idPlan);
+                    
                     this.showAlertGood = true
                     this.$router.push('/inicio');
                 }else{

@@ -10,7 +10,7 @@
     
         <!-- md:mx-auto md:w-full md:max-w-md -->
         <div class="mt-10 w-5/6 md:mx-auto">
-            <form v-on:submit.prevent="singUp" class="space-y-6 w-full p-8 rounded-md border-0 ring-gray-300 ring-1 ring-inset bg-white shadow-md " action="" method="PUT">
+            <form v-on:submit.prevent="updateInfo" class="space-y-6 w-full p-8 rounded-md border-0 ring-gray-300 ring-1 ring-inset bg-white shadow-md " action="" method="PUT">
                 <div class="grid grid-cols-2 gap-9">
 
                     <!-- DIV 1 -->
@@ -83,13 +83,15 @@
   
 <script>
 
-import {put} from '../utils';
+import {put, get} from '../utils';
+import { mapGetters } from "vuex";
 
 export default {
-
+    computed: {
+    ...mapGetters(["id"])
+  },
     data: function(){
         return{
-            id: "",
             name: "",
             user: "",
             email: "",
@@ -99,22 +101,41 @@ export default {
         }
     },
     methods: {
-        async singUp(){
-            const jsonData = {
-                "idUsuario": 25, //this.id
-                "nameUser": this.user, 
-                "correo": this.email, 
-                "contrasena": this.pass, 
-                "nombreUsuario": this.name,
-                "icono": " ", //this.icon
-                "telef": this.phone 
+        async showInfo(){
+            try{
+
+                const {idUsuario, nameUser, nombreUsuario, correo, icono, contrasena} = await get(`http://localhost:3000/perfil?id=${this.id}`)
+
+                this.id= idUsuario;
+                this.name = nameUser;
+                this.user = nombreUsuario;
+                this.email = correo;
+                this.pass = contrasena;
+                this.icon = icono;
+
+            }catch(error){
+                console.log(error);
             }
             
-            console.log(jsonData);
+        },
 
+        async updateInfo(){
             try {
-            const response = await put(`http://localhost:3000/actualizar-perfil`, jsonData);
-            console.log(response); 
+                const jsonData = {
+                    "idUsuario": this.id,
+                    "nameUser": this.user, 
+                    "correo": this.email, 
+                    "contrasena": this.pass, 
+                    "nombreUsuario": this.name,
+                    "icono": this.icon,
+                    "telef": this.phone 
+                }
+                
+                console.log(jsonData);
+
+                
+                const {msj, affected} = await put(`http://localhost:3000/actualizar-perfil`, jsonData);
+                console.log(msj, affected); 
 
             } catch (error) {
                 console.error(error);

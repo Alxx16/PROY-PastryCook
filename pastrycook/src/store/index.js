@@ -13,21 +13,23 @@ export default createStore({
       },
       UPDATE_TOKEN(state, payload) {
         state.token = payload
+      },
+      UPDATE_TYPE_ACCOUNT(state, payload){
+        state.type_account = payload
       }
     },
     actions: {
       addId(context, payload) {
-        // const id = context.state.id
-      // id.push(payload)
-      console.log({context, payload})
       context.commit('UPDATE_ID', payload)
       },
       
       addToken(context, payload) {
-      //   const token = context.state.token
-      // token.push(payload)
       context.commit('UPDATE_TOKEN', payload)
-      }
+      },
+
+      addTypeAccount(context, payload) {
+        context.commit('UPDATE_TYPE_ACCOUNT', payload)
+        }
       
     },
     getters: {
@@ -36,6 +38,9 @@ export default createStore({
       },
       id: (state) => {
         return state.id
+      }, 
+      type_account: (state) =>{
+        return state.type_account
       }
     },
 })
