@@ -22,7 +22,12 @@ const routes = [
       path: '/SingUp',
       name: 'SingUp',
       component: () => import('@/components/BoxSingUp.vue')
-    }
+    },
+    {
+     path: '/Create',
+     name: 'Create',
+     component: () => import('@/Views/BoxCreate.vue')
+   }
 ]
 
 const router = createRouter({
