@@ -1,5 +1,6 @@
 const User = require("../../model/User")
 const Recipe = require("../../model/Recipe")
+const CategoriaNivel = require("../../model/CategoriaNivel")
 
 //Raíz
 module.exports = {
@@ -13,7 +14,7 @@ module.exports = {
             const resultsData = await user.getDataUser();
             response.status(200).json(resultsData)
         },
-        async seeDataRecipe (request, response) {
+        async getDataRecipe (request, response) {
             const reqRecipeIn = {
                 operacion: request.query.op
                 , id_Usuario: request.query.idU
@@ -24,5 +25,11 @@ module.exports = {
             const [resultsR] = JSON.stringify(resultsRecipe) === '[]' ? [{ "msj": 'No se han encontrado Recetas', "estado": 0}] : [resultsRecipe]
             response.status(200).json(resultsR);
         },
+        async getCategNivel (request, response){
+            const operacion = request.query.op;
+            const filtros = new CategoriaNivel(operacion);
+            const [results] = await filtros.getData();
+            response.status(200).json(results);
+        }
     }
 }

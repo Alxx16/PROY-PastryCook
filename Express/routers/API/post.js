@@ -21,13 +21,13 @@ module.exports = {
         async login (request, response) {
             const reqLogin = request.body;
             const user = new User(reqLogin);
-            const {resulRes, idUsu} = await user.loginUser();
+            const {resulRes, idUsu, idPlan} = await user.loginUser();
             
             if(resulRes !== 0 ){
                 const token = jwt.sign(reqLogin, process.env.JWT_KEY)
-                response.status(200).json({msj: "¡Bienvenido!", id: idUsu, token: token, estado: resulRes})
+                response.status(200).json({msj: "¡Bienvenido!", id: idUsu, token: token, idPlan: idPlan,estado: resulRes})
             }else{
-                response.status(400).json({msj: "Fallo al Iniciar Sesión", id: idUsu, estado: resulRes})
+                response.status(400).json({msj: "Fallo al Iniciar Sesión", id: idUsu, idPlan: idPlan, estado: resulRes})
             }
         },
         async postRecipe (request, response) {
