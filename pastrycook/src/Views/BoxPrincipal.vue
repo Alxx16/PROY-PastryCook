@@ -1,12 +1,20 @@
 <template>
   <div>
+    <div>
+      
+    </div>
   <nav class="relative flex w-full items-center bg-white py-2 ">
   <div class="flex w-full  items-center justify-center  px-3">
     <!-- Necesito arreglar xxm -->
     <div class="flex">
       <ul class="flex flex-col md:flex-row justify-between text-justify">
+<<<<<<< HEAD
+        <li class="mb-4 md:mb-0 md:mr-4">
+        <router-link to="/Create">Inicio</router-link> 
+=======
         <li class="mb-4 md:mb-0 md:mr-4 mx-10">
           <a class="" href="../components/BoxMyProfile.vue">Inicio</a>
+>>>>>>> c4dbc2ee5d6c84f6dd570fca6e548676c49dc6aa
         </li>
         <li class="mb-4 md:mb-0 md:mr-4 mx-10">
           <a class="scale-100" href="#features">Buscar</a>
@@ -24,16 +32,15 @@
 <!-- Carrusel -->
 <div>
    <div class="flex flex-wrap w-full relative">
-  <div class="absolute w-full" v-for="(color,index) in colors" :key="color">
+  <div class="absolute w-full" v-for="(color,index) in image" :key="index">
     <transition name="fade">
-      <div v-if="count==index" :class="color" style="height:350px">
-    </div>
+    <img :src="color" v-if="count==index" alt="" style="height:350px;">
     </transition>
     
   </div>
   <div class="w-full" style="height:345px">
       <div class="absolute bottom-0 flex w-full justify-center">
-        <div @click="makeActive(index)" v-for="(color,index) in colors" :key="color" :class="count==index?'bg-gray-600':'bg-yellow-800'" class="rounded-full h-4 w-4 mx-2 cursor-pointer"></div>
+        <div @click="makeActive(index)" v-for="(color,index) in image" :key="index" :class="count==index?'bg-gray-600':'bg-yellow-800'" class="rounded-full h-4 w-4 mx-2 cursor-pointer"></div>
       </div>
       
   </div>
@@ -114,6 +121,7 @@ export default {
       count:0,
       interval:"",
       colors:["bg-teal-300","bg-green-800","bg-pink-700"],
+      image:["./img/img1.jpg","./img/img2.jpg","./img/img3.jpg"],
     }
   },
   methods:{
