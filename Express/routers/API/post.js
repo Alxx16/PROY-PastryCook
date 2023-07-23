@@ -1,5 +1,8 @@
 const User = require("../../model/User")
 const Favorite = require("../../model/Favorite")
+const dotenv = require("dotenv");
+dotenv.config({path: '.env'});
+const jwt = require("jsonwebtoken");
 
 //Raíz
 module.exports = {
@@ -19,9 +22,10 @@ module.exports = {
             const reqLogin = request.body;
             const user = new User(reqLogin);
             const {resulRes, idUsu} = await user.loginUser();
-
+            
             if(resulRes !== 0 ){
-                response.status(200).json({msj: "¡Bienvenido!", id: idUsu})
+                const token = jwt.sign(reqLogin, process.env.JWT_KEY)
+                response.status(200).json({msj: "¡Bienvenido!", id: idUsu, token: token})
             }else{
                 response.status(400).json({msj: "Fallo al Iniciar Sesión", id: idUsu})
             }
@@ -33,11 +37,11 @@ module.exports = {
             const reqFav = request.body;
             const recetaFav = new Favorite(reqFav);
             const {resulRes, idReceta} = await recetaFav.getProcessFavorite();
-
-            if(resulRes !== 0 ){
+  
+            if(resulRes !== 0){
                 response.status(200).json({msj: "Añadido a Favoritos", idR: idReceta})
             }else{
-                response.status(400).json({msj: "Fallo al Añadir a Favoritos", idR: idReceta})
+                response.status(400).json({msj: "Fallo al Añadir a Favoritos", idR: idReceta} )
             }
         }
     }   

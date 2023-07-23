@@ -15,9 +15,9 @@ module.exports = {
         },
         async seeDataRecipe (request, response) {
             const reqRecipeIn = {
-                    operacion: request.query.op
-                    , id_Usuario: request.query.idU
-                    , id_Receta: request.query.idR
+                operacion: request.query.op
+                , id_Usuario: request.query.idU
+                , id_Receta: request.query.idR
             };
             const recipe = new Recipe(reqRecipeIn);
             const [resultsRecipe] = await recipe.getAllRecipe();
