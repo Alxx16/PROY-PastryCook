@@ -3,7 +3,7 @@
         <div> 
             <h3 class="uppercase p-5 bg-violet-200 w-full text-center text-2xl font-bold leading-9 tracking-tight text-gray-900 mb-8">Iniciar Sesión</h3>
             
-            <div class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md" role="alert">
+            <div v-if="showAlertGood" class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md" role="alert">
                 <div class="flex text-left">
                     <div class="py-1 mx-9">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-teal-500">
@@ -11,13 +11,14 @@
                         </svg>
                     </div>
                     <div>
-                        <p class="font-bold">¡Inicio de sesión exitoso!</p>
-                        <p class="text-sm">Mensaje Api</p>
+                        <p class="font-bold">¡Exito!</p>
+                        <p class="text-sm">{{ msj }}</p>
                     </div>
                 </div>               
             </div>
 
-            <div class="bg-red-100 border-t-4 border-red-500 rounded-b text-red-900 px-4 py-3 shadow-md" role="alert">
+
+            <div v-else-if="showAlertBad" class="bg-red-100 border-t-4 border-red-500 rounded-b text-red-900 px-4 py-3 shadow-md" role="alert">
                 <div class="flex text-left">
                     <div class="py-1 mx-9">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-red-500">
@@ -25,8 +26,8 @@
                         </svg>
                     </div>
                     <div>
-                        <p class="font-bold">¡Error de inicio de sesión!</p>
-                        <p class="text-sm">Mensaje Api</p>
+                        <p class="font-bold">¡Error!</p>
+                        <p class="text-sm">{{ msj }}</p>
                     </div>
                 </div>               
             </div>
@@ -54,13 +55,12 @@
                         </div>
                     </div>
                     <div class="flex justify-cenBOXter">
-                        <!-- <router-link to="/inicio" type="submit" class="tracking-widest uppercase w-52 rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Iniciar Sesión</router-link> -->
-                        <button type="submit" class="tracking-widest uppercase w-52 rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Iniciar Sesión</button>
+                        <button v-on:click="login" v-if="!showAlertGood" type="submit" class="tracking-widest uppercase w-52 rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Registrarse</button>
                     </div>
 
                     <p class="mt-10 text-center text-sm text-gray-500">
                         ¿No tienes una cuenta?
-                        <RouterLink to="/SingUp" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Registrate aquí</RouterLink>
+                        <router-link to="/SingUp" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Registrate aquí</router-link>
                     </p>
             </form>
         </div>  
@@ -74,10 +74,13 @@ import {post} from '../utils';
 
 export default {
 
-    data: function(){
+    data: () => {
         return{
             user: "",
-            pass: ""
+            pass: "",
+            showAlertGood: false,
+            showAlertBad: false
+
         }
     },
     methods: {
@@ -91,16 +94,17 @@ export default {
             console.log(jsonData);
 
             try {
-            const {id, msj, token, estado} = await post(`http://localhost:3000/login`, jsonData);
+                const {id, msj, token, estado} = await post(`http://localhost:3000/login`, jsonData);
+                this.msj = msj;
 
-            if(estado == 1){
-                console.log('Pagina principal ' + msj); 
-                console.log(id, token)
-            }else{
-                console.log('te mando alenrt de X y vuelves a iniciar sesion o tre crear cuenta ' + msj); 
-            } 
-            
-
+                if(estado == 1){
+                    this.showAlertGood = true
+                    console.log('Pagina principal ' + msj); 
+                    console.log(id, token)
+                    this.$router.push('/inicio');
+                }else{
+                    this.showAlertBad = true
+                } 
             } catch (error) {
                 console.error(error);
             }
