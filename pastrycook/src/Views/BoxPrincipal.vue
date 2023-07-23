@@ -8,16 +8,21 @@
     <!-- Necesito arreglar xxm -->
     <div class="flex">
       <ul class="flex flex-col md:flex-row justify-between text-justify">
+<<<<<<< HEAD
         <li class="mb-4 md:mb-0 md:mr-4">
         <router-link to="/Create">Inicio</router-link> 
+=======
+        <li class="mb-4 md:mb-0 md:mr-4 mx-10">
+          <a class="" href="../components/BoxMyProfile.vue">Inicio</a>
+>>>>>>> c4dbc2ee5d6c84f6dd570fca6e548676c49dc6aa
         </li>
-        <li class="mb-4 md:mb-0 md:mr-4">
+        <li class="mb-4 md:mb-0 md:mr-4 mx-10">
           <a class="scale-100" href="#features">Buscar</a>
         </li>
-        <li class="mb-4 md:mb-0 md:mr-4">
+        <li class="mb-4 md:mb-0 md:mr-4 mx-10">
           <a class=" " href="#pricing">Favoritos</a>
         </li>
-        <li class="mb-2 md:mb-0">
+        <li class="mb-2 md:mb-0 mx-10">
           <a class=" " href="#about">Recetas</a>
         </li>
       </ul>
@@ -147,9 +152,9 @@ li {
   display: inline-block;
   margin: 0 10px;
 }
-a {
-  /* color: #ef1fc9; */
-}
+/* a {
+  /* color: #ef1fc9; 
+} */
 
 .fade-enter-active,
 .fade-leave-active {
