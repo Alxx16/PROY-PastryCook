@@ -39,23 +39,23 @@ const middelware = (req, res, next) => {
 //APIS PETICIÓN GET--------
 router.get('/perfil', middelware, getApi.getUser);
 router.get('/all-recetas', middelware, getApi.getDataRecipe);
-router.get('/categorias', getApi.getCategNivel)
-router.get('/planes', getApi.getPlanes)
+router.get('/categorias', getApi.getCategNivel)//no lleva midl
+router.get('/planes', getApi.getPlanes)//no lleva midl
 router.get('/planesUsuario', middelware, getApi.getPlanes)
 
 //APIS PETICIÓN POST--------
 router.post('/registro', postApi.signUp); //no lleva midl
 router.post('/login', postApi.login); // no lleva midl
 router.post('/agregarFavorito', middelware, postApi.postFavorite);
+router.post('/crearReceta', middelware, postApi.postRecipe);
 
 //APIS PETICIÓN PUT--------
-router.put('/actualizar-perfil', [middelware, upload.single('foto')], putApi.editUser) //buscar como hacer el put
+router.put('/actualizar-perfil', [middelware, upload.single('foto')], putApi.editUser) 
+router.put('/editarReceta', middelware, putApi.editRecipe);
 
 //APIS PETICIÓN DELETE--------
 router.delete('/eliminarFavorito', middelware, deleteApi.deleteFavorite); 
-
-//
-
+router.delete('/eliminarReceta', middelware, deleteApi.deleteRecipe); 
 
 
 module.exports = router;

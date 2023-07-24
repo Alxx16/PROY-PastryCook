@@ -17,6 +17,17 @@ module.exports = {
             }else{
                 response.status(400).json({msj: "Fallo al Eliminar de Favoritos", idR: idReceta, estado: resulRes} )
             }
+        },
+        async deleteRecipe (request, response){
+            const reqDele = request.body;
+            const recipe = new Recipe(reqDele);
+            const results = await recipe.processRecipe();
+
+            if(results !== 0){
+                response.status(200).json({msj: "Receta Eliminada", estado: results})
+            }else{
+                response.status(400).json({msj: "Fallo al eliminar la receta", estado: results} )
+            }
         }
     }
 }

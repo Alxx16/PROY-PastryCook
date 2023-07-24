@@ -37,7 +37,7 @@ class User {
             }
         } catch (error) {
             console.log(error);
-            console.log("Error al registrar al Usuario")
+            console.log("Error al registrar al Usuario = ", error)
         }
         return 0;
     }
@@ -64,8 +64,7 @@ class User {
 
             return {resulRes: valiResponse, idUsu: idUsu, idPlan: idPlan};
         } catch (error) {
-            console.log(error);
-            console.log("Error al Iniciar Sesión")
+            console.log("Error al Iniciar Sesión = ", error)
         }
     }
     async getDataUser(){
@@ -83,8 +82,7 @@ class User {
             });
             return results;
         } catch (error) {
-            console.log(error);
-            console.log("Error al Obtener la Data")
+            console.log("Error al Obtener la Data = ", error)
         }
     }
     async updateDataUser(){
@@ -109,7 +107,8 @@ class User {
                 return 0;
             }
         } catch (error) {
-            
+            console.log("Error al editar los datos = ", error)
+            return 0;
         }
     }
 }

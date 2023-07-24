@@ -21,7 +21,6 @@ module.exports = {
                 , id_Usuario: request.query.idU
                 , id_Receta: request.query.idR
             };
-            let ej;
             const recipe = new Recipe(reqRecipeIn);
             const resultsRecipe = await recipe.getAllRecipe();
             const resultsR = JSON.stringify(resultsRecipe) === '[]' ? [{ "msj": 'No se han encontrado Recetas', "estado": 0}] : resultsRecipe

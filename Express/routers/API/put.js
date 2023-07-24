@@ -17,6 +17,17 @@ module.exports = {
             }else{
                 response.status(400).json({msj: "Error al Actualizar los Datos", affected: resultEdit})
             }
+        },
+        async editRecipe (request, response){
+            const reqEdit = request.body;
+            const recipe = new Recipe(reqEdit);
+            const results = await recipe.processRecipe();
+
+            if(results !== 0){
+                response.status(200).json({msj: "Receta Editada", estado: results})
+            }else{
+                response.status(400).json({msj: "Fallo al editar la receta", estado: results} )
+            }
         }
     }
 }
