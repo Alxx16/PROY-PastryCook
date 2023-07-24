@@ -137,6 +137,7 @@ export default {
           ingredientes:"una polla caliente",
           categoria:"Frias",
           nivel:"Principiante",
+          ratind:5,
 
         },
         {
@@ -148,6 +149,8 @@ export default {
           ingredientes:"una polla fria",
           categoria:"Calientes",
           nivel:"Avanzado", 
+          ratind:2,
+
         },
         {
           id:3,
@@ -158,6 +161,8 @@ export default {
           ingredientes:"uasdas",
           categoria:"Csadasd",
           nivel:"asdasd", 
+          ratind:1,
+
         }
 
       ]
