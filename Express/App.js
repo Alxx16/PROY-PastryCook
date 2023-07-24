@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 const app = express();
 const path = require ('path');
 dotenv.config({path: '.env'});
+
 // const jwt = require("jsonwebtoken");
 
 app.use(morgan('dev'));
@@ -17,6 +18,7 @@ app.use((req, res, next) => {
     next();
   });
 app.use(require('./routers/rutas'));
+
 
 app.use(express.static(path.join(__dirname, 'public')))
 const server = app.listen(process.env.PORT, (error) => {
