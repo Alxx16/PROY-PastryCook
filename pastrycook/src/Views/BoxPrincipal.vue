@@ -108,6 +108,8 @@
 
 <script>
 import BoxRecetas from './BoxRecetas.vue';
+import { mapGetters } from "vuex";
+import { $router } from '../router';
 export default {
   name: 'SlideCarousel',
   components:{
@@ -115,6 +117,8 @@ export default {
   },
   props: {
     msg: String
+  },computed: {
+    ...mapGetters(["token"])
   },
   data(){
     return{
@@ -159,6 +163,7 @@ export default {
       ]
     }
   },
+  
   methods:{
     makeActive:function(index){
       this.count=index;
@@ -171,6 +176,10 @@ export default {
     this.interval=setInterval(()=>{
       this.count==2?this.count=0:this.count++;
       }, 2000);
+
+      if(this.token==false  ){
+        $router.push("/");
+      }
   },
   beforeUnmount(){
     clearInterval(this.interval);
