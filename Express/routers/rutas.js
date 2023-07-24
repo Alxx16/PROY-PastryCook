@@ -42,6 +42,7 @@ router.get('/all-recetas', middelware, getApi.getDataRecipe);
 router.get('/categorias', getApi.getCategNivel)//no lleva midl
 router.get('/planes', getApi.getPlanes)//no lleva midl
 router.get('/planesUsuario', middelware, getApi.getPlanes)
+router.get('/busquedaRecetas', middelware, getApi.getSearchRecipe);
 
 //APIS PETICIÓN POST--------
 router.post('/registro', postApi.signUp); //no lleva midl

@@ -40,6 +40,9 @@ module.exports = {
             const planes = new Planes(reqPlanes);
             const [results] = await planes.getPlanesAll();
             response.status(200).json(results);
+        },
+        async getSearchRecipe(){
+
         }
     }
 }

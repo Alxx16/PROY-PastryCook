@@ -19,7 +19,9 @@ module.exports = {
             }
         },
         async deleteRecipe (request, response){
-            const reqDele = request.body;
+            const reqDele = { operacion: request.query.op
+                            ,  id_Receta: request.query.idR
+                            };
             const recipe = new Recipe(reqDele);
             const results = await recipe.processRecipe();
 
