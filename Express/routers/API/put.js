@@ -1,4 +1,5 @@
 const User = require("../../model/User")
+const Recipe = require("../../model/Recipe")
 
 //Raíz
 module.exports = {

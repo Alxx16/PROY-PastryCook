@@ -1,5 +1,5 @@
-const User = require("../../model/User")
 const Favorite = require("../../model/Favorite")
+const Recipe = require("../../model/Recipe")
 
 //Raíz
 module.exports = {
