@@ -165,16 +165,12 @@ export default {
 
   async created(){
     try{
-      const {icono, email, id_U, nombreCompleto, telefono, username} = await get(`http://localhost:3000/perfil?id=${this.id}`, this.token)
-      this.id = id_U
-      this.name = nombreCompleto;
-      this.user =  username;
-      this.email = email;
-      this.phone = telefono;
+      const response = await get(`http://localhost:3000/all-recetas`, this.token)
+      console.log(response);
       // this.pass = contrasena;
-      this.icon = 'http://localhost:3000/'+ icono;
+      // this.icon = 'http://localhost:3000/'+ icono;
 
-      console.log(this.id, this.name, this.user,  this.email, this.phone)
+      // console.log(this.id, this.name, this.user,  this.email, this.phone)
 
     }catch(error){
         console.log(error);
