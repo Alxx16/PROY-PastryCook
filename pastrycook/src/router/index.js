@@ -47,6 +47,11 @@ const routes = [
   path: '/Recipe',
   name: 'Recipe',
   component: () => import('@/components/BoxViewRecipe.vue')
+},
+{
+  path: '/CreateRecipe',
+  name: 'CreateRecipe',
+  component: () => import('@/components/BoxCreateRecipe.vue')
 }
 ]
 
