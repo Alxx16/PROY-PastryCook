@@ -54,6 +54,26 @@ class Recipe {
             return 0;
         }
     }
+    async searchRecipe(){
+        try {
+            const [results] = await new Promise((resolve, reject) => {
+                connection.query('CALL `sp_filtrarBusqueda`(?,?,?,?,?)', 
+                                [   this.operacion, this.titulo_,this.id_Postres
+                                    , this.id_Dificultad, this.idtipoPlan_
+                                ],
+                    (error, results) => {
+                        if (error) reject(error);
+                            console.log(results)
+                            resolve(results);
+                    }
+                );
+            });
+            return results;
+        } catch (error) {
+            console.log("Error al buscar las recetas", error)
+            return 0;
+        }
+    }
 }
 
 module.exports = Recipe;
