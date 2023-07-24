@@ -29,6 +29,17 @@ module.exports = {
             }else{
                 response.status(400).json({msj: "Fallo al editar la receta", estado: results} )
             }
+        },
+        async actPlanUsu (request, response){
+            const reqSubsc = request.body;
+            const plan = new Plan(reqSubsc);
+            const resSubs = await plan.subsPlanUser();
+
+            if(resSubs !== 0){
+                response.status(200).json({msj: "Subscripción Exitosa", estado: resSubs})
+            }else{
+                response.status(400).json({msj: "Fallo Subscribir al Plan", estado: resSubs} )
+            }
         }
     }
 }

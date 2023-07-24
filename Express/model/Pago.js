@@ -19,13 +19,6 @@ class Pago{
             console.log("Error al Obtener la Data: ",error)
         }
     }
-    async postPago(){ //Para hacer el pago por paypal
-        try {
-            
-        } catch (error) {
-            
-        }
-    }
 }
 
 module.exports = Pago;

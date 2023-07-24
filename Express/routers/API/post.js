@@ -1,6 +1,8 @@
 const User = require("../../model/User")
 const Favorite = require("../../model/Favorite")
 const Recipe = require("../../model/Recipe")
+const { createOrder } = require('../../model/Paypal');
+const Plan = require('../../model/Plan');
 const dotenv = require("dotenv");
 dotenv.config({path: '.env'});
 const jwt = require("jsonwebtoken");
@@ -57,7 +59,16 @@ module.exports = {
             }else{
                 response.status(400).json({msj: "Fallo al Añadir a Favoritos", idR: idReceta, estado: resulRes} )
             }
+        },
+        async postPaypal(request, response) {
+            const order = await createOrder();
+            if(order){
+                response.status(200).json(order);
+            }else{
+                response.status(400).json({msj: "Fallo al Realizar el Pago"} )
+            }  
         }
+          
     }   
 }
 
