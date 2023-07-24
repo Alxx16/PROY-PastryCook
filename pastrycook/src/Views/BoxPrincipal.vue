@@ -3,7 +3,8 @@
     <div>
       
     </div>
-  <nav class="relative flex w-full items-center bg-white py-2 ">
+    <!-- Filtro  arriba -->
+  <nav v-if="bar" class="relative flex w-full items-center bg-white py-2 ">
   <div class="flex w-full  items-center justify-center  px-3">
     <!-- Necesito arreglar xxm -->
     <div class="flex">
@@ -13,10 +14,10 @@
           </router-link>
         </li>
         <li class="mb-4 md:mb-0 md:mr-4 mx-10">
-          <a class="scale-100" href="#features">Buscar</a>
+          <router-link to="/Xuxa" class="scale-100" href="#features">Buscar</router-link>
         </li>
         <li class="mb-4 md:mb-0 md:mr-4 mx-10">
-          <a class=" " href="#pricing">Favoritos</a>
+          <router-link to="/Favorite" class=" ">Favoritos</router-link>
         </li>
         <li class="mb-2 md:mb-0 mx-10">
           <a class=" " href="#about">Recetas</a>
@@ -27,14 +28,14 @@
 </nav>
 <!-- Carrusel -->
 <div>
-   <div class="flex flex-wrap w-full relative">
+   <div class="flex flex-wrap w-full h-full relative">
   <div class="absolute w-full" v-for="(color,index) in image" :key="index">
     <transition name="fade">
-    <img :src="color" v-if="count==index" alt="" style="height:350px;">
+    <img :src="color" v-if="count==index" alt="" style="height: 345px; width:auto">
     </transition>
     
   </div>
-  <div class="w-full" style="height:345px">
+  <div class="w-full h-full" style="height:345px;width:auto">
       <div class="absolute bottom-0 flex w-full justify-center">
         <div @click="makeActive(index)" v-for="(color,index) in image" :key="index" :class="count==index?'bg-gray-600':'bg-yellow-800'" class="rounded-full h-4 w-4 mx-2 cursor-pointer"></div>
       </div>
@@ -98,17 +99,20 @@
     </div>
   </div>
     <!-- Recetas -->
-  </div>
-
-
+  </div >
+<BoxRecetas :polla="recetas"/>
 </div>
 </template>
 
 
 
 <script>
+import BoxRecetas from './BoxRecetas.vue';
 export default {
   name: 'SlideCarousel',
+  components:{
+    BoxRecetas
+  },
   props: {
     msg: String
   },
@@ -118,11 +122,49 @@ export default {
       interval:"",
       colors:["bg-teal-300","bg-green-800","bg-pink-700"],
       image:["./img/img1.jpg","./img/img2.jpg","./img/img3.jpg"],
+      bar:true,
+      recetas : [
+        {
+          id:1,
+          descripcion:"La mejor manera de refrescarse en un día caluroso",
+          titulo:"Recetas frias",
+          autor:"Pastry Cook",
+          costo:"$ 100",
+          ingredientes:"una polla caliente",
+          categoria:"Frias",
+          nivel:"Principiante",
+
+        },
+        {
+          id:2,
+          descripcion:"La mejor manera de entrar en calor en un día frío",
+          titulo:"Receta calientes",
+          autor:"cocinero 1",
+          costo:"$ 200",
+          ingredientes:"una polla fria",
+          categoria:"Calientes",
+          nivel:"Avanzado", 
+        },
+        {
+          id:3,
+          descripcion:"aslkdnasd",
+          titulo:"asdasdaqsdas",
+          autor:"coasdasd",
+          costo:"$ 20220",
+          ingredientes:"uasdas",
+          categoria:"Csadasd",
+          nivel:"asdasd", 
+        }
+
+      ]
     }
   },
   methods:{
     makeActive:function(index){
       this.count=index;
+    },
+    toggleButton() {
+      this.bar = !this.bar;// Cambiar el estado de la variable al hacer clic
     }
   },
   mounted(){

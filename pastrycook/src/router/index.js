@@ -32,7 +32,17 @@ const routes = [
     path: '/Profile',
     name: 'Profile',
     component: () => import('@/components/BoxMyProfile.vue')
-  }
+  },
+  {
+   path: '/Favorite',
+   name: 'Favorite',
+   component: () => import('@/Views/BoxFav.vue')
+ },
+ {
+  path: '/Xuxa',
+  name: 'Xuxa',
+  component: () => import('@/Views/BoxRecetas.vue')
+}
 ]
 
 const router = createRouter({
