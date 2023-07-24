@@ -108,6 +108,9 @@
 
 <script>
 import BoxRecetas from './BoxRecetas.vue';
+import { get} from '../utils';
+// import { mapGetters } from "vuex";
+
 export default {
   name: 'SlideCarousel',
   components:{
@@ -116,49 +119,69 @@ export default {
   props: {
     msg: String
   },
-  data(){
+  data: ()=>{
     return{
       count:0,
       interval:"",
-      colors:["bg-teal-300","bg-green-800","bg-pink-700"],
-      image:["./img/img1.jpg","./img/img2.jpg","./img/img3.jpg"],
-      bar:true,
-      recetas : [
-        {
-          id:1,
-          descripcion:"La mejor manera de refrescarse en un día caluroso",
-          titulo:"Recetas frias",
-          autor:"Pastry Cook",
-          costo:"$ 100",
-          ingredientes:"una polla caliente",
-          categoria:"Frias",
-          nivel:"Principiante",
+      // colors:["bg-teal-300","bg-green-800","bg-pink-700"],
+      // image:["./img/img1.jpg","./img/img2.jpg","./img/img3.jpg"],
+      // bar:true,
+      // recetas : [
+      //   {
+      //     id:1,
+      //     descripcion:"La mejor manera de refrescarse en un día caluroso",
+      //     titulo:"Recetas frias",
+      //     autor:"Pastry Cook",
+      //     costo:"$ 100",
+      //     ingredientes:"una polla caliente",
+      //     categoria:"Frias",
+      //     nivel:"Principiante",
 
-        },
-        {
-          id:2,
-          descripcion:"La mejor manera de entrar en calor en un día frío",
-          titulo:"Receta calientes",
-          autor:"cocinero 1",
-          costo:"$ 200",
-          ingredientes:"una polla fria",
-          categoria:"Calientes",
-          nivel:"Avanzado", 
-        },
-        {
-          id:3,
-          descripcion:"aslkdnasd",
-          titulo:"asdasdaqsdas",
-          autor:"coasdasd",
-          costo:"$ 20220",
-          ingredientes:"uasdas",
-          categoria:"Csadasd",
-          nivel:"asdasd", 
-        }
+      //   },
+      //   {
+      //     id:2,
+      //     descripcion:"La mejor manera de entrar en calor en un día frío",
+      //     titulo:"Receta calientes",
+      //     autor:"cocinero 1",
+      //     costo:"$ 200",
+      //     ingredientes:"una polla fria",
+      //     categoria:"Calientes",
+      //     nivel:"Avanzado", 
+      //   },
+      //   {
+      //     id:3,
+      //     descripcion:"aslkdnasd",
+      //     titulo:"asdasdaqsdas",
+      //     autor:"coasdasd",
+      //     costo:"$ 20220",
+      //     ingredientes:"uasdas",
+      //     categoria:"Csadasd",
+      //     nivel:"asdasd", 
+      //   }
 
-      ]
+      // ]
     }
   },
+
+  async created(){
+    try{
+      const {icono, email, id_U, nombreCompleto, telefono, username} = await get(`http://localhost:3000/perfil?id=${this.id}`, this.token)
+      this.id = id_U
+      this.name = nombreCompleto;
+      this.user =  username;
+      this.email = email;
+      this.phone = telefono;
+      // this.pass = contrasena;
+      this.icon = 'http://localhost:3000/'+ icono;
+
+      console.log(this.id, this.name, this.user,  this.email, this.phone)
+
+    }catch(error){
+        console.log(error);
+    }
+
+  },
+
   methods:{
     makeActive:function(index){
       this.count=index;

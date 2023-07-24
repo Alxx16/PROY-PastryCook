@@ -107,13 +107,7 @@ export default {
     },
     async created(){
         try{
-                const {icono, email, id_U, nombreCompleto, telefono, username} = await get(`http://localhost:3000/perfil?id=${this.id}`, 
-                {
-                    method: 'GET',
-                    headers: {
-                        'authorization': this.token
-                    }
-                })
+                const {icono, email, id_U, nombreCompleto, telefono, username} = await get(`http://localhost:3000/perfil?id=${this.id}`, this.token)
                 this.id = id_U
                 this.name = nombreCompleto;
                 this.user =  username;
