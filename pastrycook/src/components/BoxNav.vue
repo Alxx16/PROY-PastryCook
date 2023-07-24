@@ -41,7 +41,7 @@ export default {
   },
   data: ()=>{
     return{
-      showDropDown: false;
+      showDropDown: false
     }
   },
   methods:{

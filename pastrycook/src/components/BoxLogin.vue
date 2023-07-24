@@ -89,7 +89,7 @@ export default {
         }
     },
     methods: {
-        ...mapActions(['addId', 'addToken', 'addaddTypeAccount']),
+        ...mapActions(['addId', 'addToken', 'addTypeAccount']),
 
         async login(){
             const jsonData = {

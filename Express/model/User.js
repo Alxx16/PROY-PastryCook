@@ -89,11 +89,10 @@ class User {
     }
     async updateDataUser(){
         try {
-            const emailV = await Validate.validateEmail(this.correo);
+            const emailV = Validate.validateEmail(this.correo);
             if(emailV){
                 const encryPass = await Validate.encryptPassword(this.contrasena);
                 const passEdit = (this.contrasena !== " ") ? encryPass : " "
-                
                 const results = await new Promise((resolve, reject) => {
                     connection.query('CALL `sp_editarUsuario`(?,?,?,?,?,?,?)', 
                                     [this.idUsuario, this.nameUser, this.correo, passEdit, 

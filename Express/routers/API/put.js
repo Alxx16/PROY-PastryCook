@@ -4,7 +4,11 @@ const User = require("../../model/User")
 module.exports = {
     putApi : {
         async editUser (request, response) {
-            const reqEdit = request.body;
+            let reqEdit = JSON.parse(request.body.data);
+            reqEdit["operacion"] = '';
+            reqEdit["icono"] = request.file.destination.split("/")[1] +'/'+ request.file.filename
+            console.log(request.file.destination.split("/"));
+            console.log(reqEdit)
             const user = new User(reqEdit);
             const resultEdit = await user.updateDataUser();
 

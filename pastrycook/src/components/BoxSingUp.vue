@@ -80,7 +80,7 @@ export default {
             console.log(jsonData);
 
             try {
-            const response = await post(`http://localhost:3001/registro`, jsonData);
+            const response = await post(`http://localhost:3000/registro`, jsonData);
             console.log(response); 
 
             } catch (error) {
