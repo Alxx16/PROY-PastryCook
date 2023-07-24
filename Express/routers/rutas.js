@@ -23,7 +23,9 @@ const middelware = (req, res, next) => {
 //APIS PETICIÓN GET--------
 router.get('/perfil', middelware, getApi.getUser);
 router.get('/all-recetas', middelware, getApi.getDataRecipe);
-router.get("/categorias", getApi.getCategNivel)
+router.get('/categorias', getApi.getCategNivel)
+router.get('/planes', getApi.getPlanes)
+router.get('/planesUsuario', middelware, getApi.getPlanes)
 
 //APIS PETICIÓN POST--------
 router.post('/registro', postApi.signUp); //no lleva midl
