@@ -129,7 +129,8 @@ export default {
       count:0,
       interval:"",
       recetas: [],
-      
+      image:["./img/img1.jpg","./img/img2.jpg","./img/img3.jpg"],
+      bar:true,
     }
   },
   async created(){
