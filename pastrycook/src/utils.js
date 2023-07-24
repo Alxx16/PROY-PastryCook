@@ -37,6 +37,18 @@ module.exports = {
         return response.json();
     },
     
+    async postC(url, data, token) {
+        const response = await fetch(url, {
+            method: "POST",
+            body: data,
+            headers: {
+                "Content-type": "application/json; charset=UTF-8",
+                'authorization': token
+            },
+        });
+        return response.json();
+    },
+
 
     async put(url, data, token){
         const response = await fetch(url, {
