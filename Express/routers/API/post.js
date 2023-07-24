@@ -32,7 +32,9 @@ module.exports = {
             }
         },
         async postRecipe (request, response) {
-            const reqAdd = request.body;
+            let reqAdd = JSON.parse(request.body.data);
+            reqAdd["operacion"] = '';
+            reqAdd["icono"] = request.file.destination.split("/")[1] +'/'+ request.file.filename
             const recipe = new Recipe(reqAdd);
             const results = await recipe.processRecipe();
 

@@ -44,8 +44,8 @@ const routes = [
   component: () => import('@/Views/BoxRecetas.vue')
 },
 {
-  path: '/hola',
-  name: 'hola',
+  path: '/Recipe',
+  name: 'Recipe',
   component: () => import('@/components/BoxViewRecipe.vue')
 },
 {

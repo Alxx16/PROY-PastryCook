@@ -10,17 +10,16 @@
     <div class="flex">
       <ul class="flex flex-col md:flex-row justify-between text-justify">
         <li class="mb-4 md:mb-0 md:mr-4 mx-10">
-          <router-link to="/Profile" class="" href="">Inicio 
-          </router-link>
+          <router-link to="/inicio" class="" href="">Inicio</router-link>
         </li>
         <li class="mb-4 md:mb-0 md:mr-4 mx-10">
-          <router-link to="/Xuxa" class="scale-100" href="#features">Buscar</router-link>
+          <router-link to="/Xuxa" class="scale-100">Buscar</router-link>
         </li>
         <li class="mb-4 md:mb-0 md:mr-4 mx-10">
           <router-link to="/Favorite" class=" ">Favoritos</router-link>
         </li>
         <li class="mb-2 md:mb-0 mx-10">
-          <a class=" " href="#about">Recetas</a>
+        <router-link to="/Create" class="" >Recetas</router-link>
         </li>
       </ul>
     </div>

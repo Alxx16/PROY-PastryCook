@@ -2,6 +2,7 @@ const User = require("../../model/User")
 const Recipe = require("../../model/Recipe")
 const CategoriaNivel = require("../../model/CategoriaNivel")
 const Planes = require("../../model/Plan")
+const Pago = require("../../model/Pago")
 
 //Raíz
 module.exports = {
@@ -34,11 +35,33 @@ module.exports = {
         },
         async getPlanes (request, response){
             const reqPlanes = {
-                                operacion: request.query.op, id_user: request.query.idU
-                                , id_plan_: request.query.idP, descount: request.query.desc
-                            }
+                operacion: request.query.op, id_user: request.query.idU
+                , id_plan_: request.query.idP, descount: request.query.total
+            }
             const planes = new Planes(reqPlanes);
             const [results] = await planes.getPlanesAll();
+            response.status(200).json(results);
+        },
+        async getSearchRecipe(request, response){
+            const reqSearch = {
+                operacion: request.query.op, titulo_: request.query.titulo
+                , id_Postres: request.query.idPostres, id_Dificultad: request.query.idNivel
+                , idtipoPlan_: request.query.idTipoP
+            }
+            const recipe = new Recipe(reqSearch);
+            const results = await recipe.searchRecipe();
+            const valRes = Object.values(results).length < 1 ? [{ "msj": 'No Se Han Encontrado Resultados', "estado": 0}] : results
+            response.status(200).json(valRes);
+        },
+        async getPagosTipo (request, response){
+            const pago = new Pago();
+            const [results] = await pago.getTipoPago();
+            response.status(200).json(results);
+        },
+        async getDatailPlan(request, response){
+            const reqPlanes = {id_plan_: request.query.id_plan_}
+            const planes = new Planes(reqPlanes);
+            const [results] = await planes.detailsPlan();
             response.status(200).json(results);
         }
     }

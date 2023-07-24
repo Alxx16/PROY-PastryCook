@@ -3,7 +3,7 @@
 
     <div class="flex justify-center items-center ">
 
-        <div class="container grid grid-rows-2  grid-cols-3 gap-10 my-6   flex justify-center items-center">
+        <div class="container grid grid-rows-2  grid-cols-3 gap-10 my-6  justify-center items-center">
             <div class="-m-1 flex flex-wrap md:-m-2" v-for="po in paginatedData" v-bind:key="po.id">
                 <a @click="emitId(po.id_R)" href="#" class="w-full  bg-white  border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-blue-300 dark:border-gray-700 dark:bg-blue-300 dark:hover:bg-blue-500">
                     <div class="w-full h-60">

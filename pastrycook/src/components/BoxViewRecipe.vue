@@ -1,5 +1,5 @@
 <template>
-    <div>
+  <div class="flex flex-col items-center justify-center min-h-screen py-2">
         <BoxRecetas :msg="msg" :Pastry="Pastry" @id-clicked="handleIdClicked"/>
       <h3>{{ titulo }}</h3>
       <span>{{ id_r }}</span>
