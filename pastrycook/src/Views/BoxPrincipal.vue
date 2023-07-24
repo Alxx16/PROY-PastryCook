@@ -31,7 +31,7 @@
    <div class="flex flex-wrap w-full h-full relative">
   <div class="absolute w-full" v-for="(color,index) in image" :key="index">
     <transition name="fade">
-    <img :src="color" v-if="count==index" alt="" style="height: 345px; width:auto">
+    <img :src="color" v-if="count==index" alt="" style="object-fit: cover;">
     </transition>
     
   </div>
