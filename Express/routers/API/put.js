@@ -18,7 +18,9 @@ module.exports = {
             }
         },
         async editRecipe (request, response){
-            const reqEdit = request.body;
+            let reqEdit = JSON.parse(request.body.data);
+            reqEdit["operacion"] = '';
+            reqEdit["icono"] = request.file.destination.split("/")[1] +'/'+ request.file.filename
             const recipe = new Recipe(reqEdit);
             const results = await recipe.processRecipe();
 
