@@ -14,7 +14,7 @@
   </template>
   
   <script>
-    import BoxRecetas from '../views/BoxRecetas';
+    import BoxRecetas from '../Views/BoxRecetas';
     import { mapGetters } from "vuex";
     import { get } from "../utils";
   
