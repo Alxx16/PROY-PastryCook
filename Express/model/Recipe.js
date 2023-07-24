@@ -9,7 +9,7 @@ class Recipe {
     }
     async getAllRecipe(){
         try {
-            const results = await new Promise((resolve, reject) => {
+            const [results] = await new Promise((resolve, reject) => {
                 connection.query('CALL `sp_mostrar_recetas`(?,?,?)', 
                                 [this.operacion, this.id_Usuario, this.id_Receta],
                     (error, results) => {

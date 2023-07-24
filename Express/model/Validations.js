@@ -11,9 +11,9 @@ module.exports = {
             const passVali = await bcrypt.compare(password, passwordEncrypt);
             return passVali;
         },
-        async validateEmail(email){
+        validateEmail(email){
            const validEmail =  /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
-           const respEmail = await validEmail.test(email) ? 1 : 0;
+           const respEmail =  validEmail.test(email) ? 1 : 0;
            return respEmail;
         }
     }
