@@ -1,6 +1,11 @@
 module.exports = {
-    async get(url, opciones){
-        const rawResponse = await fetch(url, opciones);
+    async get(url, token){
+        const rawResponse = await fetch(url, {
+            method: 'GET',
+            headers: {
+                'authorization': token
+            }
+        });
         return rawResponse.json();
     },
     async post(url, data) {
@@ -28,7 +33,7 @@ module.exports = {
 
     async delete(url){
         const response = await fetch(url, {
-            method: "PUT",
+            method: "DELETE",
         });
         return response.json();
     }

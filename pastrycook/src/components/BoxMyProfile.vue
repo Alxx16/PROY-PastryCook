@@ -1,14 +1,16 @@
 <template>
         <div class="flex min-h-full flex-1 flex-col justify-center pb-12 padding-top: 0px;">
         <div class="mt-0"> 
-            <h3 class="uppercase p-5 bg-violet-200 w-full text-center text-2xl font-sans font-light mb-8">Mi Perfil</h3>
-            
+            <h3 class="uppercase p-5 bg-violet-200 w-full text-center text-2xl font-sans font-light mb-8">Mi Perfil</h3> 
+            <div>
+                <span v-if="true" class="bg-yellow-100 text-yellow-800 text-xl font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">Plan Mamallena</span>
+                <span v-if="true" class="bg-pink-100 text-pink-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-pink-900 dark:text-pink-300">Plan Tarta</span>
+                <span v-if="true" class="bg-purple-100 text-purple-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">Plan Cupcake</span>
+            </div>
         </div>
-    
+        
+         <!-- fin barra -->
     <div class="flex min-h-full flex-1 flex-col justify-center pb-12 padding-top: 0px;">
-        <!-- class="sm:mx-auto sm:w-full sm:max-w-sm"-->
-    
-        <!-- md:mx-auto md:w-full md:max-w-md -->
         <div class="mt-10 w-5/6 md:mx-auto">
             <form  class="space-y-6 w-full p-8 rounded-md border-0 ring-gray-300 ring-1 ring-inset bg-white shadow-md " action="" method="PUT">
                 <div class="grid grid-cols-2 gap-9">
@@ -47,17 +49,22 @@
                                 <input v-model="pass" id="password" name="password" required="required" type="password" placeholder="Introduce contraseña" class="block w-full rounded-md border-0  text-gray-900 px-3 py-2 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                             </div>
                         </div>
+                        <div class="flex justify-center">
+                            <!-- <router-link to="/login" type="submit" class="tracking-widest uppercase w-52 rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Iniciar Sesión</router-link> -->
+                            <button  @click.prevent="updateInfo" class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Guardar</button>
+                            <button type="submit" class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-6 py-2.5 text-center mr-2 mb-2">Cerrar</button>
+                        </div>
 
                     </div>
 
                     <!-- DIV 2 -->
                     <div class="group relative" >
 
-                        <div class="my-6 mx-32">
+                        <div class="my-6 mx-auto">
                             <img  class="mx-auto h-64 w-auto bg-pink-300  " :src="icon" alt="ImgProfile" />
                             <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Upload file</label>
                             <input @change="selectFile" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" type="file">
-                            <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help">A profile picture is useful to confirm your are logged into your account</div>
+                            <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help">Agrega la imagen de Perfil que más te guste!</div>
 
                         </div>
 
@@ -68,12 +75,7 @@
                                 <input v-model="phone" id="phone" name="phone" required="required" type="tel" placeholder="Ingrese el numero de celular" class="block w-full rounded-md border-0  text-gray-900 px-3 py-2 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                             </div>
                         </div>
-
-                        <div class="flex justify-center">
-                            <!-- <router-link to="/login" type="submit" class="tracking-widest uppercase w-52 rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Iniciar Sesión</router-link> -->
-                            <button  @click.prevent="updateInfo" class="tracking-widest uppercase w-52 rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Guardar</button>
-                            <button type="submit" class="tracking-widest uppercase w-52 rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Cerrar</button>
-                        </div>
+  
                     </div>
                 </div>
                     
@@ -107,13 +109,7 @@ export default {
     },
     async created(){
         try{
-                const {icono, email, id_U, nombreCompleto, telefono, username} = await get(`http://localhost:3000/perfil?id=${this.id}`, 
-                {
-                    method: 'GET',
-                    headers: {
-                        'authorization': this.token
-                    }
-                })
+                const {icono, email, id_U, nombreCompleto, telefono, username} = await get(`http://localhost:3000/perfil?id=${this.id}`, this.token)
                 this.id = id_U
                 this.name = nombreCompleto;
                 this.user =  username;

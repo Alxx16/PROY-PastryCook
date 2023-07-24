@@ -1,5 +1,6 @@
 <template>
   <!-- Boton  -->
+  <div>
   <nav id="Navbar" class="flex items-center justify-between bg-rose-300 p-4">
     <router-link to="/inicio" class="flex items-center flex-shrink-0 text-white mr-6">
       <img src="../assets/img/logo.png" alt="logo" class="h-24 ">
@@ -27,6 +28,31 @@
       <!-- FIN BOTON -->
   
   </nav>
+     <!-- Filtro  arriba -->
+     <nav v-if="token" class="relative flex w-full items-center bg-white py-2 ">
+      <div class="flex w-full  items-center justify-center  px-3">
+      <!-- Necesito arreglar xxm -->
+      <div class="flex">
+        <ul class="flex flex-col md:flex-row justify-between text-justify">
+          <li class="mb-4 md:mb-0 md:mr-4 mx-10">
+          <router-link to="/Profile" class="" href="">Inicio 
+          </router-link>
+          </li>
+          <li class="mb-4 md:mb-0 md:mr-4 mx-10">
+          <a class="scale-100" href="#features">Buscar</a>
+          </li>
+          <li class="mb-4 md:mb-0 md:mr-4 mx-10">
+          <router-link to="/Favorite" class=" ">Favoritos</router-link>
+        </li>
+        <li class="mb-2 md:mb-0 mx-10">
+          <a class=" " href="#about">Recetas</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+   <!-- Fin filtro -->
+</div>
 </template>
 
 

@@ -3,7 +3,6 @@
     <BoxNab/>
     <router-view/>
     <BoxFoot/>
-    <box-sing-up/>
   </div>
   
 </template>
@@ -11,16 +10,15 @@
 <script>
 import BoxNab from './components/BoxNav.vue';
 import BoxFoot from './components/BoxFoot.vue';
-//import BoxBody from './components/BoxBody.vue';
-//import BoxTitle from './components/BoxTitle.vue';
+
 
 export default {
   name: 'App',
   components: {
     BoxNab,
-    BoxFoot
-    //BoxBody,
-    //BoxTitle
+    BoxFoot,
+  
+    
   }
 }
 </script>
