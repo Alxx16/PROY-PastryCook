@@ -1,5 +1,5 @@
-const User = require("../../model/User")
 const Favorite = require("../../model/Favorite")
+const Recipe = require("../../model/Recipe")
 
 //Raíz
 module.exports = {
@@ -16,6 +16,19 @@ module.exports = {
                 response.status(200).json({msj: "Eliminado de Favoritos", idR: idReceta, estado: resulRes})
             }else{
                 response.status(400).json({msj: "Fallo al Eliminar de Favoritos", idR: idReceta, estado: resulRes} )
+            }
+        },
+        async deleteRecipe (request, response){
+            const reqDele = { operacion: request.query.op
+                            ,  id_Receta: request.query.idR
+                            };
+            const recipe = new Recipe(reqDele);
+            const results = await recipe.processRecipe();
+
+            if(results !== 0){
+                response.status(200).json({msj: "Receta Eliminada", estado: results})
+            }else{
+                response.status(400).json({msj: "Fallo al eliminar la receta", estado: results} )
             }
         }
     }

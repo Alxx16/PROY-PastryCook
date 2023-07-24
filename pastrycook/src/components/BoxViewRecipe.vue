@@ -1,5 +1,6 @@
 <template>
   <div class="flex flex-col items-center justify-center min-h-screen py-2">
+        <BoxRecetas :msg="msg" :Pastry="Pastry" @id-clicked="handleIdClicked"/>
       <h3>{{ titulo }}</h3>
       <span>{{ id_r }}</span>
       <p>{{ username }}</p>
@@ -13,10 +14,14 @@
   </template>
   
   <script>
-  import { mapGetters } from "vuex";
-  import { get } from "../utils";
+    import BoxRecetas from '../Views/BoxRecetas';
+    import { mapGetters } from "vuex";
+    import { get } from "../utils";
   
   export default {
+    components: {
+        BoxRecetas,
+    },
     computed: {
       ...mapGetters(["token", "id", "type_account"]),
     },
@@ -31,12 +36,18 @@
         postre: "",
         tipoDificultad: "",
         fecha: "",
+        idForR: null,
+        idForU: null
       };
+    },
+    handleIdClicked(id) {
+      this.idForR = id;
+      
     },
     async created() {
       try {
         const response = await get(
-          `http://localhost:3000/all-recetas?op=D&idU=1&idR=7`,
+          `http://localhost:3000/all-recetas?op=D&idU=0&idR=${this.idForR}`,
           this.token
         );
   

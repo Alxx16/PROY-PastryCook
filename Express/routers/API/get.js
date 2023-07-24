@@ -21,7 +21,6 @@ module.exports = {
                 , id_Usuario: request.query.idU
                 , id_Receta: request.query.idR
             };
-            let ej;
             const recipe = new Recipe(reqRecipeIn);
             const resultsRecipe = await recipe.getAllRecipe();
             const resultsR = JSON.stringify(resultsRecipe) === '[]' ? [{ "msj": 'No se han encontrado Recetas', "estado": 0}] : resultsRecipe
@@ -35,12 +34,23 @@ module.exports = {
         },
         async getPlanes (request, response){
             const reqPlanes = {
-                                operacion: request.query.op, id_user: request.query.idU
-                                , id_plan_: request.query.idP, descount: request.query.desc
-                            }
+                operacion: request.query.op, id_user: request.query.idU
+                , id_plan_: request.query.idP, descount: request.query.desc
+            }
             const planes = new Planes(reqPlanes);
             const [results] = await planes.getPlanesAll();
             response.status(200).json(results);
+        },
+        async getSearchRecipe(request, response){
+            const reqSearch = {
+                operacion: request.query.op, titulo_: request.query.titulo
+                , id_Postres: request.query.idPostres, id_Dificultad: request.query.idNivel
+                , idtipoPlan_: request.query.idTipoP
+            }
+            const recipe = new Recipe(reqSearch);
+            const results = await recipe.searchRecipe();
+            const valRes = Object.values(results).length < 1 ? [{ "msj": 'No Se Han Encontrado Resultados', "estado": 0}] : results
+            response.status(200).json(valRes);
         }
     }
 }
