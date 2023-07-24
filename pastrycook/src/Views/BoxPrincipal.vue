@@ -108,8 +108,11 @@
 
 <script>
 import BoxRecetas from './BoxRecetas.vue';
-import { get} from '../utils';
-// import { mapGetters } from "vuex";
+// import { get} from '../utils';
+
+import { mapGetters } from "vuex";
+import { $router } from '../router';
+import {get} from '../utils';
 
 export default {
   name: 'SlideCarousel',
@@ -118,66 +121,30 @@ export default {
   },
   props: {
     msg: String
+  },computed: {
+    ...mapGetters(["token", "id", "type_account"])
   },
   data: ()=>{
     return{
       count:0,
       interval:"",
-      // colors:["bg-teal-300","bg-green-800","bg-pink-700"],
-      // image:["./img/img1.jpg","./img/img2.jpg","./img/img3.jpg"],
-      // bar:true,
-      // recetas : [
-      //   {
-      //     id:1,
-      //     descripcion:"La mejor manera de refrescarse en un día caluroso",
-      //     titulo:"Recetas frias",
-      //     autor:"Pastry Cook",
-      //     costo:"$ 100",
-      //     ingredientes:"una polla caliente",
-      //     categoria:"Frias",
-      //     nivel:"Principiante",
-
-      //   },
-      //   {
-      //     id:2,
-      //     descripcion:"La mejor manera de entrar en calor en un día frío",
-      //     titulo:"Receta calientes",
-      //     autor:"cocinero 1",
-      //     costo:"$ 200",
-      //     ingredientes:"una polla fria",
-      //     categoria:"Calientes",
-      //     nivel:"Avanzado", 
-      //   },
-      //   {
-      //     id:3,
-      //     descripcion:"aslkdnasd",
-      //     titulo:"asdasdaqsdas",
-      //     autor:"coasdasd",
-      //     costo:"$ 20220",
-      //     ingredientes:"uasdas",
-      //     categoria:"Csadasd",
-      //     nivel:"asdasd", 
-      //   }
-
-      // ]
+      recetas: [],
+      
     }
   },
-
   async created(){
-    try{
-      const response = await get(`http://localhost:3000/all-recetas`, this.token)
-      console.log(response);
-      // this.pass = contrasena;
-      // this.icon = 'http://localhost:3000/'+ icono;
+        try{
+            const response = await get(`http://localhost:3000/all-recetas?op=B&idU=0&idR=0`, this.token)
+            this.recetas = response;
 
-      // console.log(this.id, this.name, this.user,  this.email, this.phone)
+            console.log(response);
+          }catch(error){
+              console.log(error);
+          }
 
-    }catch(error){
-        console.log(error);
-    }
+    },
 
-  },
-
+  
   methods:{
     makeActive:function(index){
       this.count=index;
@@ -190,6 +157,10 @@ export default {
     this.interval=setInterval(()=>{
       this.count==2?this.count=0:this.count++;
       }, 2000);
+
+      if(this.token==false  ){
+        $router.push("/");
+      }
   },
   beforeUnmount(){
     clearInterval(this.interval);

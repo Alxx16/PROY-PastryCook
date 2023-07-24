@@ -1,7 +1,6 @@
 <template>
     <div class="bg-white h-screen" >
     <BoxNab/>
-  
     <router-view/>
     <BoxFoot/>
   </div>
