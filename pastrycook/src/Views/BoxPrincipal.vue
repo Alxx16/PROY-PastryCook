@@ -100,7 +100,7 @@
   </div>
     <!-- Recetas -->
   </div >
-<BoxRecetas :polla="recetas"/>
+<BoxRecetas :Pastry="recetas"/>
 </div>
 </template>
 
