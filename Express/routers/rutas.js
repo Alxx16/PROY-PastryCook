@@ -48,11 +48,11 @@ router.get('/busquedaRecetas', middelware, getApi.getSearchRecipe);
 router.post('/registro', postApi.signUp); //no lleva midl
 router.post('/login', postApi.login); // no lleva midl
 router.post('/agregarFavorito', middelware, postApi.postFavorite);
-router.post('/crearReceta', middelware, postApi.postRecipe);
+router.post('/crearReceta', [middelware, upload.single('foto')], postApi.postRecipe); //almac de img
 
 //APIS PETICIÓN PUT--------
-router.put('/actualizar-perfil', [middelware, upload.single('foto')], putApi.editUser) 
-router.put('/editarReceta', middelware, putApi.editRecipe);
+router.put('/actualizar-perfil', [middelware, upload.single('foto')], putApi.editUser) //almac de img
+router.put('/editarReceta', [middelware, upload.single('foto')], putApi.editRecipe); //almac de img
 
 //APIS PETICIÓN DELETE--------
 router.delete('/eliminarFavorito', middelware, deleteApi.deleteFavorite); 
