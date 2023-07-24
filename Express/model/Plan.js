@@ -23,6 +23,7 @@ class Planes{
             return results
         } catch (error) {
             console.log("Error al Obtener la Data: ",error)
+            return 0;
         }
     }
     async detailsPlan(){
@@ -39,14 +40,26 @@ class Planes{
             });
             return results
         } catch (error) {
-            
+            console.log("Error al Obtener la Data: ",error)
+            return 0;
         }
     }
     async subsPlanUser(){
         try {
-            
+            const results = await new Promise((resolve, reject) => {
+                connection.query('CALL `sp_procesos_planes`(?,?,?,?)', 
+                                [this.operacion, this.id_user, this.id_plan_, this.total],
+                    (error, results) => {
+                        if (error) reject(error);
+                            console.log(results);
+                            resolve(results);
+                    }
+                );
+            });
+            return results.affectedRows;;
         } catch (error) {
-            
+            console.log("Error en la Subscripción: ",error)
+            return 0;
         }
     }
 }

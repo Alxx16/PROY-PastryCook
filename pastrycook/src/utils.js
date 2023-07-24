@@ -1,5 +1,11 @@
 module.exports = {
-    async get(url, token){
+
+    async get(url){
+        const rawResponse = await fetch(url)
+        return rawResponse.json();
+    },
+
+    async getH(url, token){
         const rawResponse = await fetch(url, {
             method: 'GET',
             headers: {
@@ -14,10 +20,35 @@ module.exports = {
             body: JSON.stringify(data),
             headers: {
                 "Content-type": "application/json; charset=UTF-8",
-              },
+            },
         });
         return response.json();
     },
+
+    async postH(url, data, token) {
+        const response = await fetch(url, {
+            method: "POST",
+            body: JSON.stringify(data),
+            headers: {
+                "Content-type": "application/json; charset=UTF-8",
+                'authorization': token
+            },
+        });
+        return response.json();
+    },
+    
+    async postC(url, data, token) {
+        const response = await fetch(url, {
+            method: "POST",
+            body: data,
+            headers: {
+                "Content-type": "application/json; charset=UTF-8",
+                'authorization': token
+            },
+        });
+        return response.json();
+    },
+
 
     async put(url, data, token){
         const response = await fetch(url, {
@@ -31,9 +62,12 @@ module.exports = {
 
     },
 
-    async delete(url){
+    async del(url, token){
         const response = await fetch(url, {
             method: "DELETE",
+            headers: {
+                'authorization': token
+            }
         });
         return response.json();
     }

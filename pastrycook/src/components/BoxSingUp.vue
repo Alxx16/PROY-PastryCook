@@ -66,6 +66,8 @@ export default {
             pass: ""
         }
     },
+
+    //FALTA REDIREECIONAMIENTOOOOOOOOOO
     methods: {
         async singUp(){
             const jsonData = {

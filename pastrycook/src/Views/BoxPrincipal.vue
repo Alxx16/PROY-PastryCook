@@ -107,11 +107,10 @@
 
 <script>
 import BoxRecetas from './BoxRecetas.vue';
-// import { get} from '../utils';
 
 import { mapGetters } from "vuex";
 import { $router } from '../router';
-import {get} from '../utils';
+import {getH} from '../utils';
 
 export default {
   name: 'SlideCarousel',
@@ -134,10 +133,9 @@ export default {
   },
   async created(){
         try{
-            const response = await get(`http://localhost:3000/all-recetas?op=B&idU=0&idR=0`, this.token)
+            const response = await getH(`http://localhost:3000/all-recetas?op=B&idU=0&idR=0`, this.token)
             this.recetas = response;
-
-            console.log(response);
+            console.log(this.recetas);
           }catch(error){
               console.log(error);
           }
