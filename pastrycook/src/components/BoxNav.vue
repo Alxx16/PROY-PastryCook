@@ -29,7 +29,7 @@
   
   </nav>
      <!-- Filtro  arriba -->
-     <nav  class="relative flex w-full items-center bg-white py-2 ">
+     <nav v-if="token" class="relative flex w-full items-center bg-white py-2 ">
       <div class="flex w-full  items-center justify-center  px-3">
       <!-- Necesito arreglar xxm -->
       <div class="flex">
@@ -51,6 +51,7 @@
     </div>
   </div>
 </nav>
+   <!-- Fin filtro -->
 </div>
 </template>
 

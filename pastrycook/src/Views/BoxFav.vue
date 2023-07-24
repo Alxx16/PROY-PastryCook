@@ -3,7 +3,7 @@
   <div>
   <div class="flex min-h-full flex-1 flex-col justify-center pb-12 padding-top: 0px;">
         <div class="mt-0"> 
-            <h3 class="uppercase p-5 bg-violet-200 w-full text-left text-2xl text-center font-sans font-light mb-8">Recetas</h3> 
+            <h3 class="uppercase p-5 bg-violet-200 w-full text-left text-2xl  font-sans font-light mb-8">Recetas</h3> 
         </div>
     <div class="container mx-auto px-5 py-2 lg:px-32 lg:pt-12 padding-top: 0px;">
   <div class="-m-1 flex flex-wrap md:-m-2">
