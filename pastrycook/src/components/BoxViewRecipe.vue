@@ -16,6 +16,10 @@
         <span v-else class="absolute top-0 right-0 bg-blue-400 text-white px-2 py-1 text-xs font-bold rounded-bl">No Premium</span>
       <div  class="w-25 space-y-6 rounded-md border-0 bg-violet-100 p-10 shadow-md ring-1 ring-inset ring-gray-300">
       <!-- <div class="w-full h-10 bg-cover bg-center" :style="{ 'background-image': 'url(' + imagen + ')' }"></div> -->
+<<<<<<< HEAD
+=======
+
+>>>>>>> b8d379bf2a7ac7139a092f355ee6a17fdeb9a0cc
 
 
       <!--Form de Crear-->
