@@ -120,6 +120,38 @@
 </template>
 
 <script>
+
+import {get} from '../utils';
+
+export default {
+data: ()=>{
+    return{
+      planes: [],
+
+    }
+  },
+  async created(){
+        try{
+            const response = await get(`http://localhost:3000/planes?op=D&idU=0&idP=0&desc=0`, this.token)
+            this.planes = response;
+            console.log(this.planes);
+
+            
+          }catch(error){
+              console.log(error);
+          }
+
+    },
+
+  
+  methods:{
+    
+  },
+}
+
+
+
+
 </script>
   <style>
   

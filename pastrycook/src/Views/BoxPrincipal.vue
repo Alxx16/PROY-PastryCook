@@ -121,6 +121,8 @@ export default {
             const response = await getH(`http://localhost:3000/all-recetas?op=B&idU=0&idR=0`, this.token)
             this.recetas = response;
             console.log(this.recetas);
+
+            
           }catch(error){
               console.log(error);
           }
