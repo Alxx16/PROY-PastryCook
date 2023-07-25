@@ -78,7 +78,7 @@
   <div class="container my-24 mx-auto md:px-6">
   <section class="mb-32 ">
     <h2 class="mb-12 text-center text-3xl font-bold">Planes Premium</h2>
-    <div class=" grid gap-6 lg:grid-cols-3 lg:gap-x-12">
+    <div class=" grid gap-6 lg:grid-col flex-col lg:gap-x-12">
       <div class="mb-6 lg:mb-0">
         <div class="block h-full rounded-lg bg-rose-300 shadow-md">
           <div class="border-b-2 border-neutral-100 border-opacity-100 p-6 text-center dark:border-opacity-10">
