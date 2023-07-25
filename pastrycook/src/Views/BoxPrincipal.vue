@@ -27,7 +27,7 @@
 </nav>
 <!-- Carrusel -->
 <div class="bg-white w-full max-h-">
-            <img class=" flex-none w-full h-full" src="../assets/img/Banner.png" alt="">
+            <img class=" flex-none w-full h-full" src="../assets/img/banner2.jpg" alt="">
         </div> 
 <!-- Titulo -->
 <section class="mb-12 bg-rose-300">
