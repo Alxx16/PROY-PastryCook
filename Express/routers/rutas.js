@@ -44,7 +44,7 @@ router.get('/tipo-pago', getApi.getPagosTipo)//no lleva midl
 router.post('/registro', postApi.signUp); //no lleva midl
 router.post('/login', postApi.login); // no lleva midl
 router.post('/agregarFavorito', middelware, postApi.postFavorite);
-router.post('/crearReceta', [middelware, upload.single('foto')], postApi.postRecipe); //almac de img
+router.post('/crearReceta', middelware, postApi.postRecipe); //almac de img
 router.post('/payment/create', middelware, postApi.postPaypal)
 //APIS PETICIÓN PUT--------
 router.put('/actualizar-perfil', [middelware, upload.single('foto')], putApi.editUser) //almac de img

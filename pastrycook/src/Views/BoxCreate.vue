@@ -37,26 +37,22 @@
        <!--Form de Crear-->
     <div class="-mx-3 mb-6 flex flex-col">
       <div class="group relative z-0 mb-6 w-full">
-        <input v-model="titulo" type="text" name="NameReceta" id="NameReceta" class="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent px-0 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-blue-500" placeholder=" " required />
+        <input v-model="titulo" type="text" required="required" name="NameReceta" id="NameReceta" class="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent px-0 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-blue-500" placeholder=" " />
         <label for="NameReceta" class="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-blue-600 dark:text-gray-400 peer-focus:dark:text-blue-500">Nombre de la receta</label>
       </div>
 
       <div class="-mx-3 mb-6 flex flex-wrap">
         <div class="w-full px-3">
           <label for="message" class="font-large mb-2 block text-sm font-semibold text-gray-900 dark:text-white">Ingredientes</label>
-          <textarea v-model="ingredientes" id="message" rows="4" class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm font-semibold text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500" placeholder="Sabemos que será delicioso"></textarea>
+          <textarea v-model="ingrediente" id="message" rows="4" class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm font-semibold text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500" placeholder="Sabemos que será delicioso"></textarea>
         </div>
       </div>
       <div class="-mx-3 mb-6 flex flex-wrap">
         <div class="w-full px-3">
           <label for="descripcion" class="font-large mb-2 block text-sm font-semibold text-gray-900 dark:text-white">Descripcion</label>
-          <textarea v-model="descripcion" id="descripcion" rows="3" class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm font-semibold text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500" placeholder="Sabemos que será delicioso"></textarea>
+          <textarea v-model="descripcion" required="required" id="descripcion" rows="3" class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm font-semibold text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500" placeholder="Sabemos que será delicioso"></textarea>
         </div>
       </div>
-
-      <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="file_input">Sube una foto de tu creación</label>
-      <input @change="selectFile" class="block w-full cursor-pointer rounded-lg border border-gray-300 bg-gray-50 text-sm text-gray-900 focus:outline-none dark:border-gray-600 dark:bg-gray-700 dark:text-gray-400 dark:placeholder-gray-400" aria-describedby="file_input_help" id="file_input" type="file" />
-      <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
     </div>
 
     <div class="-mx-3 mb-2 flex flex-wrap">
@@ -104,7 +100,7 @@
 
 <script>
 import { mapGetters } from "vuex";
-import {get, postC} from '../utils';
+import {get, postH} from '../utils';
 
 export default {
 
@@ -141,15 +137,11 @@ export default {
     
     },
     methods: {
-        selectFile(event){
-            this.fileValue = event.target.files[0]
-        },
-
+        
         async createReceipe() {
 
         try{
 
-         console.log("entre aqui 1");
             const jsonData = {
                 "operacion": "A", 
                 "id_Usuario": this.id,
@@ -157,19 +149,14 @@ export default {
                 "titulo_": this.titulo, 
                 "ingre_": this.ingrediente, 
                 "descrp_": this.descripcion, 
-                //"img_": "",
+                "img_": " ",
                 "id_Postres": this.categoria,
                 "id_Dificultad": this.nivel,
                 "idtipoPlan_": this.type_account 
             }
-            console.log(jsonData);
-            const formData = new FormData();
-            formData.append('data', JSON.stringify(jsonData))
-
-            formData.append('foto', this.fileValue)
-            console.log(this.token);
-            const response = await postC(`http://localhost:3000/crearReceta`, formData, this.token);
-            console.log(response);
+          
+            const response = await postH(`http://localhost:3000/crearReceta`, jsonData, this.token);
+            console.log(response, ' 2 ' ,  this.token);
 
         }
         catch(e){
