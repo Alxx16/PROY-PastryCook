@@ -46,6 +46,10 @@
           <label for="message" class="font-large mb-2 block text-sm font-semibold text-gray-900 dark:text-white">Ingredientes</label>
           <textarea v-model="ingrediente" id="message" rows="4" class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm font-semibold text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500" placeholder="Sabemos que será delicioso"></textarea>
         </div>
+        <div class="group relative z-0 mb-6 mt-3 w-full">
+            <input type="text" name="Descrip" id="Descrip" class="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent px-0 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:text-white dark:focus:border-blue-500" placeholder=" " required />
+            <label for="Descip" class="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-blue-600 dark:text-gray-400 peer-focus:dark:text-blue-500">Danos un descripción Breve</label>
+          </div>
       </div>
       <div class="-mx-3 mb-6 flex flex-wrap">
         <div class="w-full px-3">
@@ -171,35 +175,3 @@ export default {
 </script>
 
 
-
-
-<!-- <template>
-  <div class="flex min-h-full relative flex-1 flex-col items-center justify-center ">
-   
-    
-    
-    <form class="space-y-6 w-25 p-10 rounded-md border-0 ring-gray-300 ring-1 ring-inset  shadow-md  bg-teal-400">
-     
-      
-      <div class="flex flex-wrap -mx-3 mb-6">
-        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
-            Titulo de la Receta
-          </label>
-          <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="Pastel de queso">
-          <p class="text-red-500 text-xs italic">Upps! Parece que te falto este campo</p>
-        </div>
-        
-      
-
-        <div class="w-full md:w-1/2 px-3">
-          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-            Last Name
-          </label>
-          <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Doe">
-        </div>
-      </div>
-      
-     
-  </div>
-</template> -->

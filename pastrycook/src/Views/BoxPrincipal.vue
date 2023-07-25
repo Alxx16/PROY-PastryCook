@@ -19,7 +19,7 @@
           <router-link to="/Favorite" class=" ">Favoritos</router-link>
         </li>
         <li class="mb-2 md:mb-0 mx-10">
-        <router-link to="/Create" class="" >Recetas</router-link>
+        <router-link to="/MyRecipe" class="" >Recetas</router-link>
         </li>
       </ul>
     </div>
