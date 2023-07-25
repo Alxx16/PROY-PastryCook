@@ -80,10 +80,17 @@ export default {
             }
             
             console.log(jsonData);
-
+            
             try {
-            const response = await post(`http://localhost:3000/registro`, jsonData);
-            console.log(response); 
+            const {mjs, affect} = await post(`http://localhost:3000/registro`, jsonData);
+            console.log(mjs, affect); 
+
+            if(affect == 1){
+                this.$router.push('/login');
+                console.log(mjs);
+            }else{
+                console.log(mjs);
+            }
 
             } catch (error) {
                 console.error(error);
