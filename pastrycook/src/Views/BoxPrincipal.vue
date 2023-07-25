@@ -152,34 +152,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-/* a {
-  /* color: #ef1fc9; 
-} */
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: all 1s ease;
-}
-
-.fade-enter-from{
-  opacity: 0;
-  transform:translateX(-100%);
-}
-.fade-leave-to {
-  opacity: 0;
-  transform:translateX(100%);
-}
-</style>

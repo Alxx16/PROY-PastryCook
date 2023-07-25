@@ -132,10 +132,10 @@ data: ()=>{
   async created(){
         try{
             //let a = [];
-            const response = await get(`http://localhost:3001/planes?op=D&idU=0&idP=0&desc=0`)
+            const response = await get(`http://localhost:3000/planes?op=D&idU=0&idP=0&desc=0`)
             response.forEach(async(i) => {
               let b = i;
-              const respons = await get(`http://localhost:3001/detallesPlan?id_plan_=${i.id_plan}`)
+              const respons = await get(`http://localhost:3000/detallesPlan?id_plan_=${i.id_plan}`)
               b['precio'] = respons[0].total;
               this.listPlanes.push(b);
               console.log(this.listPlanes);
