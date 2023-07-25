@@ -69,7 +69,11 @@ export default {
     name: 'BoxRecetas',
     props: {
         msg: String,
-        Pastry: Array,
+        //Pastry: Array,
+        Pastry: {
+        type: Array,
+        default: () => [],
+    },
     },
     data() {
         return {
@@ -82,10 +86,18 @@ export default {
             return Math.ceil(this.Pastry.length / this.itemsPerPage);
         },
         paginatedData() {
-            const start = (this.currentPage - 1) * this.itemsPerPage;
-            const end = start + this.itemsPerPage;
-            return this.Pastry.slice(start, end);
-        },
+    if (this.Pastry) {
+        const start = (this.currentPage - 1) * this.itemsPerPage;
+        const end = start + this.itemsPerPage;
+        return this.Pastry.slice(start, end);
+    }
+    return [];
+},
+        // paginatedData() {
+        //     const start = (this.currentPage - 1) * this.itemsPerPage;
+        //     const end = start + this.itemsPerPage;
+        //     return this.Pastry.slice(start, end);
+        // },
     },
     methods: {
         nextPage() {
@@ -104,3 +116,15 @@ export default {
     },
 };
 </script>
+
+
+paginatedData() {
+    if (this.Pastry) {
+        const start = (this.currentPage - 1) * this.itemsPerPage;
+        const end = start + this.itemsPerPage;
+        return this.Pastry.slice(start, end);
+    }
+    return [];
+},
+
+
