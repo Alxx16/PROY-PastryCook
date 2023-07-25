@@ -15,12 +15,11 @@
         <span v-if="isPremium" class="absolute top-0 right-0 bg-yellow-400 text-black px-2 py-1 text-xs font-bold rounded-bl">Premium</span>
         <span v-else class="absolute top-0 right-0 bg-blue-400 text-white px-2 py-1 text-xs font-bold rounded-bl">No Premium</span>
       <div  class="w-25 space-y-6 rounded-md border-0 bg-violet-100 p-10 shadow-md ring-1 ring-inset ring-gray-300">
-        <form class="w-25 space-y-6 rounded-md border-0 bg-violet-100 p-10 shadow-md ring-1 ring-inset ring-gray-300">
-      <div class="w-full h-10 bg-cover bg-center":style="{ 'background-image': 'url(' + imagen + ')' }"></div>
+      <div class="w-full h-10 bg-cover bg-center" :style="{ 'background-image': 'url(' + imagen + ')' }"></div>
 
 
 
-       <!--Form de Crear-->
+      <!--Form de Crear-->
     <div class="mb-6">
       <h2 class="text-2xl font-bold">{{ titulo }}</h2>
     </div>
@@ -65,10 +64,10 @@
       </div>
      
     </div>
-  
       </div>
 
       </div>
+
         <div class="absolute bottom-0 right-0 bg-gray-400 text-white px-2 py-1 text-xs font-bold rounded-tl">{{ fecha }}</div>
     </div>
     <div>
