@@ -78,12 +78,13 @@
   <div class="container my-24 mx-auto md:px-6">
   <section class="mb-32 ">
     <h2 class="mb-12 text-center text-3xl font-bold">Planes Premium</h2>
-    <div class=" grid gap-6 lg:grid-cols-3 lg:gap-x-12">
+
+    <div v-for="plan in listPlanes" :key="plan.id_plan" class=" grid gap-6 lg:grid-cols-3 lg:gap-x-12">
       <div class="mb-6 lg:mb-0">
         <div class="block h-full rounded-lg bg-rose-300 shadow-md">
           <div class="border-b-2 border-neutral-100 border-opacity-100 p-6 text-center dark:border-opacity-10">
             <p class="mb-4 text-sm uppercase">
-              <strong>Plan Cupcake</strong>
+              <strong>{{ plan.tipo_plan }} </strong>
             </p>
             <h3 class="mb-6 text-3xl">
               <strong>$5.99</strong>
@@ -94,18 +95,16 @@
             <ol class="list-inside">
               <li class="mb-4 flex">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="mr-3 h-5 w-5 text-primary dark:text-primary-400">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>Acceso a Miles de Recetas!
-                
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>{{ plan.descripcion }}
               </li>
              
             </ol>
           </div>
         </div>
       </div>
-
-
-      
     </div>
+
+
   </section>
   <!-- Section: Design Block -->
 </div>
@@ -126,15 +125,15 @@ import {get} from '../utils';
 export default {
 data: ()=>{
     return{
-      planes: [],
+      listPlanes: [],
 
     }
   },
   async created(){
         try{
-            const response = await get(`http://localhost:3000/planes?op=D&idU=0&idP=0&desc=0`, this.token)
-            this.planes = response;
-            console.log(this.planes);
+            const response = await get(`http://localhost:3000/planes?op=D&idU=0&idP=0&desc=0`)
+            this.listPlanes = response;
+            console.log(this.listPlanes);
 
             
           }catch(error){
