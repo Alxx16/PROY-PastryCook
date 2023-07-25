@@ -15,11 +15,7 @@
         <span v-if="isPremium" class="absolute top-0 right-0 bg-yellow-400 text-black px-2 py-1 text-xs font-bold rounded-bl">Premium</span>
         <span v-else class="absolute top-0 right-0 bg-blue-400 text-white px-2 py-1 text-xs font-bold rounded-bl">No Premium</span>
       <div  class="w-25 space-y-6 rounded-md border-0 bg-violet-100 p-10 shadow-md ring-1 ring-inset ring-gray-300">
-<<<<<<< HEAD
-      <!-- <div class="w-full h-10 bg-cover bg-center":style="{ 'background-image': 'url(' + imagen + ')' }"></div> -->
-=======
-      <div class="w-full h-10 bg-cover bg-center" :style="{ 'background-image': 'url(' + imagen + ')' }"></div>
->>>>>>> da1101ea27aa1fe51648821b37212a2626f26627
+      <!-- <div class="w-full h-10 bg-cover bg-center" :style="{ 'background-image': 'url(' + imagen + ')' }"></div> -->
 
 
 

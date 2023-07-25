@@ -10,7 +10,7 @@
         <p class="text-2xl leading-6 text-gray-900">
           <strong class="font-semibold">Pastry Cook</strong><svg viewBox="0 0 2 2" class="mx-2 inline h-0.5 w-0.5 fill-current" aria-hidden="true"><circle cx="1" cy="1" r="1" /></svg>Bienvenido a la mejor plataforma de recetas de pasteleria
         </p>
-        <router-link to="/login" class="flex-none rounded-full bg-amber-300 px-3.5 py-1 text-sm font-semibold text-neutral-700 shadow-sm hover:bg-amber-400 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900">Registrate! <span aria-hidden="true">&rarr;</span></router-link>
+        <router-link to="/SingUp" class="flex-none rounded-full bg-amber-300 px-3.5 py-1 text-sm font-semibold text-neutral-700 shadow-sm hover:bg-amber-400 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900">Registrate! <span aria-hidden="true"></span></router-link>
       </div>
       <div class="flex flex-1 justify-end">
         

@@ -80,3 +80,6 @@ export default {
 </script>
 
 
+
+<div class="absolute bottom-0 right-0 bg-gray-400 text-white px-2 py-1 text-xs font-bold rounded-tl">{{ fecha }}</div>
+

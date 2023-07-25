@@ -39,8 +39,8 @@ const routes = [
    component: () => import('@/Views/BoxFav.vue')
  },
  {
-  path: '/Xuxa',
-  name: 'Xuxa',
+  path: '/Recetas',
+  name: 'Recetas',
   component: () => import('@/Views/BoxRecetas.vue')
 },
 {
