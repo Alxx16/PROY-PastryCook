@@ -2,7 +2,6 @@ const User = require("../../model/User")
 const Favorite = require("../../model/Favorite")
 const Recipe = require("../../model/Recipe")
 const { createOrder } = require('../../model/Paypal');
-const Plan = require('../../model/Plan');
 const dotenv = require("dotenv");
 dotenv.config({path: '.env'});
 const jwt = require("jsonwebtoken");
@@ -34,14 +33,11 @@ module.exports = {
             }
         },
         async postRecipe (request, response) {
-            console.log(1);
-            let reqAdd = JSON.parse(request.body.data);
-            // let reqAdd = request.body;
-            console.log(request.body);
-            reqAdd["operacion"] = '';
-            reqAdd["icono"] = request.file.destination.split("/")[1] +'/'+ request.file.filename
+            const reqAdd = request.body;
+           // reqAdd["operacion"] = ' ';
+           // reqAdd["icono"] = request.file.destination.split("/")[1] +'/'+ request.file.filename
             const recipe = new Recipe(reqAdd);
-            const results = await recipe.processRecipe();
+            const [results] = await recipe.processRecipe();
 
             if(results !== 0){
                 response.status(200).json({msj: "Receta Creada", estado: results})
