@@ -26,24 +26,9 @@
   </div>
 </nav>
 <!-- Carrusel -->
-<div>
-   <div class="flex flex-wrap w-full h-full relative">
-  <div class="absolute w-full" v-for="(color,index) in image" :key="index">
-    <transition name="fade">
-    <img :src="color" v-if="count==index" alt="" style="object-fit: cover;">
-    </transition>
-    
-  </div>
-  <div class="w-full h-full" style="height:345px;width:auto">
-      <div class="absolute bottom-0 flex w-full justify-center">
-        <div @click="makeActive(index)" v-for="(color,index) in image" :key="index" :class="count==index?'bg-gray-600':'bg-yellow-800'" class="rounded-full h-4 w-4 mx-2 cursor-pointer"></div>
-      </div>
-      
-  </div>
-
-</div>
-
-  </div>
+<div class="bg-white w-full max-h-">
+            <img class=" flex-none w-full h-full" src="../assets/img/Banner.png" alt="">
+        </div> 
 <!-- Titulo -->
 <section class="mb-12 bg-rose-300">
     <div class="w-full items-center justify-center bg-primary py-4 px-6 text-center md:flex md:text-left">

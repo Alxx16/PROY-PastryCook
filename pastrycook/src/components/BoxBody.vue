@@ -78,7 +78,7 @@
   <div class="container my-24 mx-auto md:px-6">
   <section class="mb-32 ">
     <h2 class="mb-12 text-center text-3xl font-bold">Planes Premium</h2>
-    <div class="grid gap-6 lg:grid-cols-3 lg:gap-x-12">
+    <div class=" grid gap-6 lg:grid-cols-3 lg:gap-x-12">
       <div class="mb-6 lg:mb-0">
         <div class="block h-full rounded-lg bg-rose-300 shadow-md">
           <div class="border-b-2 border-neutral-100 border-opacity-100 p-6 text-center dark:border-opacity-10">
@@ -89,9 +89,6 @@
               <strong>$5.99</strong>
               <small class="text-base text-neutral-500 dark:text-neutral-300">/Mes</small>
             </h3>
-
-            <button type="button" class="inline-block w-full rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal g-amber-300 py-1  text-neutral-700 shadow-sm bg-white hover:bg-violet-100 hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900 border-2 border-black"
-              data-te-ripple-init data-te-ripple-color="light"> Comprar </button>
           </div>
           <div class="p-6">
             <ol class="list-inside">
@@ -100,133 +97,14 @@
                   <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>Acceso a Miles de Recetas!
                 
               </li>
-              <li class="mb-4 flex">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                  stroke="currentColor" class="mr-3 h-5 w-5 text-primary dark:text-primary-400">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>Acceso de Por Vida!
-                
-              </li>
-              <li class="mb-4 flex">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="mr-3 h-5 w-5 text-primary dark:text-primary-400">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg> Acceso a la comundiad más grande de pasteleros!
-              </li>
+             
             </ol>
           </div>
         </div>
       </div>
 
-      <div class="mb-6 lg:mb-0">
-        <div class="block h-full rounded-lg bg-amber-300 shadow-md">
-          <div class="border-b-2 border-neutral-100 border-opacity-100 p-6 text-center dark:border-opacity-10">
-            <p class="mb-4 text-sm uppercase">
-              <strong>Plan Tarta</strong>
-            </p>
-            <h3 class="mb-6 text-3xl">
-              <strong>$35.94</strong>
-              <small class="text-base text-neutral-500 dark:text-neutral-300">/Semestral</small>
-            </h3>
-            <button type="button" class="inline-block w-full rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal g-amber-300 py-1  text-neutral-700 shadow-sm bg-white hover:bg-rose-300 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900 border-2 border-black "
-              data-te-ripple-init data-te-ripple-color="light">Comprar</button>
-          </div>
-          <div class="p-6">
-            <ol class="list-inside">
-              <li class="mb-4 flex">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                  stroke="currentColor" class="mr-3 h-5 w-5 text-primary dark:text-primary-400">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg> Acceso a Miles de Recetas!
-              
-              </li>
-              <li class="mb-4 flex">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                  stroke="currentColor" class="mr-3 h-5 w-5 text-primary dark:text-primary-400">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>Acceso de Por Vida!
-                
-              </li>
-              <li class="mb-4 flex">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                  stroke="currentColor" class="mr-3 h-5 w-5 text-primary dark:text-primary-400">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg> Acceso a la comundiad más grande de pasteleros!
-                
-              </li>
-              <li class="mb-4 flex">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                  stroke="currentColor" class="mr-3 h-5 w-5 text-primary dark:text-primary-400">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>Iconos Premium
-              </li>
-              <li class="mb-4 flex">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                  stroke="currentColor" class="mr-3 h-5 w-5 text-primary dark:text-primary-400">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>15% de descuento en plan mensual
-                
-              </li>
-            </ol>
-          </div>
-        </div>
-      </div>
 
-      <div class="mb-6 lg:mb-0">
-        <div class="block h-full rounded-lg bg-violet-100 shadow-lg">
-          <div class="border-b-2 border-neutral-100 border-opacity-100 p-6 text-center dark:border-opacity-10">
-            <p class="mb-4 text-sm uppercase">
-              <strong>Plan Mamallena</strong>
-            </p>
-            <h3 class="mb-6 text-3xl">
-              <strong>$71.88</strong>
-              <small class="text-base text-neutral-500 dark:text-neutral-300">/Anual(Mejor Precio)</small>
-            </h3>
-            <button type="button"
-              class="inline-block w-full rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal g-amber-300 py-1  text-neutral-700 shadow-sm bg-white hover:bg-amber-400 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900 border-2 border-black"
-              data-te-ripple-init data-te-ripple-color="light">
-              Comprar
-            </button>
-          </div>
-          <div class="p-6">
-            <ol class="list-inside">
-              <li class="mb-4 flex">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                  stroke="currentColor" class="mr-3 h-5 w-5 text-primary dark:text-primary-400">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg> Acceso a Miles de Recetas!
-                
-              </li>
-              <li class="mb-4 flex">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                  stroke="currentColor" class="mr-3 h-5 w-5 text-primary dark:text-primary-400">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg> Acceso a la comundiad más grande de pasteleros!
-                
-              </li>
-              <li class="mb-4 flex">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                  stroke="currentColor" class="mr-3 h-5 w-5 text-primary dark:text-primary-400">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg> Iconos Premium
-                
-              </li>
-              <li class="mb-4 flex">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                  stroke="currentColor" class="mr-3 h-5 w-5 text-primary dark:text-primary-400">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>20% de descuento en plan mensual
-              </li>
-              <li class="mb-4 flex">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                  stroke="currentColor" class="mr-3 h-5 w-5 text-primary dark:text-primary-400">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg> una polla gratis
-                
-              </li>
-              <li class="mb-4 flex">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                  stroke="currentColor" class="mr-3 h-5 w-5 text-primary dark:text-primary-400">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg> Soporte Personalizado
-                
-              </li>
-              <li class="mb-4 flex">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                  stroke="currentColor" class="mr-3 h-5 w-5 text-primary dark:text-primary-400">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg> Invitaciones a eventos exclusivos! 
-                
-              </li>
-            </ol>
-          </div>
-        </div>
-      </div>
+      
     </div>
   </section>
   <!-- Section: Design Block -->
