@@ -48,9 +48,7 @@ class Recipe {
                     }
                 );
             });
-            console.log("test3")
-            console.log(results)
-            return results;
+            return results.affectedRows;
         } catch (error) {
             console.log("Error al crear la receta", error)
             return 0;
